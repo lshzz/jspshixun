@@ -10,6 +10,9 @@
             <column name="ID" />
             <generator class="assigned" />
         </id>
+        <many-to-one name="tipicid" class="myhibernate.Tipicid" fetch="select">
+            <column name="TOPICID" />
+        </many-to-one>
         <property name="huifuname" type="java.lang.String">
             <column name="HUIFUNAME" length="50" not-null="true" />
         </property>
@@ -18,9 +21,6 @@
         </property>
         <property name="date" type="java.lang.String">
             <column name="DATE" length="50" />
-        </property>
-        <property name="topicid" type="java.lang.Integer">
-            <column name="TOPICID" />
         </property>
     </class>
 </hibernate-mapping>

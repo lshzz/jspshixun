@@ -9,10 +9,10 @@ public class Huifutopic implements java.io.Serializable {
 	// Fields
 
 	private Integer id;
+	private Tipicid tipicid;
 	private String huifuname;
 	private String returncontent;
 	private String date;
-	private Integer topicid;
 
 	// Constructors
 
@@ -27,13 +27,13 @@ public class Huifutopic implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Huifutopic(Integer id, String huifuname, String returncontent,
-			String date, Integer topicid) {
+	public Huifutopic(Integer id, Tipicid tipicid, String huifuname,
+			String returncontent, String date) {
 		this.id = id;
+		this.tipicid = tipicid;
 		this.huifuname = huifuname;
 		this.returncontent = returncontent;
 		this.date = date;
-		this.topicid = topicid;
 	}
 
 	// Property accessors
@@ -44,6 +44,14 @@ public class Huifutopic implements java.io.Serializable {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public Tipicid getTipicid() {
+		return this.tipicid;
+	}
+
+	public void setTipicid(Tipicid tipicid) {
+		this.tipicid = tipicid;
 	}
 
 	public String getHuifuname() {
@@ -68,14 +76,6 @@ public class Huifutopic implements java.io.Serializable {
 
 	public void setDate(String date) {
 		this.date = date;
-	}
-
-	public Integer getTopicid() {
-		return this.topicid;
-	}
-
-	public void setTopicid(Integer topicid) {
-		this.topicid = topicid;
 	}
 
 }

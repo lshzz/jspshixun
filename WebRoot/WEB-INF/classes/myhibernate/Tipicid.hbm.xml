@@ -8,7 +8,7 @@
     <class name="myhibernate.Tipicid" table="TIPICID" schema="APP">
         <id name="topicid" type="java.lang.Integer">
             <column name="TOPICID" />
-            <generator class="identity" />
+            <generator class="assigned" />
         </id>
         <many-to-one name="board" class="myhibernate.Board" fetch="select">
             <column name="BOARDID" />
@@ -25,5 +25,11 @@
         <property name="author" type="java.lang.String">
             <column name="AUTHOR" length="50" />
         </property>
+        <set name="huifutopics" inverse="true">
+            <key>
+                <column name="TOPICID" />
+            </key>
+            <one-to-many class="myhibernate.Huifutopic" />
+        </set>
     </class>
 </hibernate-mapping>
