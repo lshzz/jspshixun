@@ -1,6 +1,7 @@
 package ActionPackge;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.struts2.StrutsStatics;
 
@@ -34,11 +35,10 @@ public class HuifuAction extends ActionSupport {
 		HttpServletRequest request = (HttpServletRequest)ActionContext.getContext().get(StrutsStatics.HTTP_REQUEST);
 		String str="fail";
 		HuifutopicBean huifutopicBean=new HuifutopicBean();
-		
-		if(huifutopicBean.huifu(content,topid ))
+		HttpSession session = request.getSession(true);
+		if(huifutopicBean.huifu(content,topid ,session.getAttribute("username").toString()))
 		{
 			str="success";
-			System.out.print("³É¹¦");
 		}
 		 request.setAttribute("tipicid",topid);
 	return str;

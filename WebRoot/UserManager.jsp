@@ -1,4 +1,7 @@
 <%@ page language="java" import="java.util.*" pageEncoding="GBK"%>
+<%@page import="myhibernate.BoardBean"%>
+<%@page import="myhibernate.Board"%>
+<%@page import="myhibernate.HibernateSessionFactory"%>
 <%@ taglib prefix="s" uri="/struts-tags"%> 
 <%
 String path = request.getContextPath();
@@ -6,6 +9,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 %>
 <%request.setCharacterEncoding("GBK");
 response.setCharacterEncoding("GBK");
+
+
  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -52,12 +57,13 @@ response.setCharacterEncoding("GBK");
              	<td>
             		<a href="UserManager.action?id= <s:property value='#array.id'/>" >É¾³ýÓÃ»§</a>
            		 </td>   
+ 
        		</tr>
     </s:iterator>  
     	
 </table>
 
-	</br>
+	<br>
 <table border="1">
   <tr>
     <th>°å¿éIDs</th>
@@ -71,5 +77,5 @@ response.setCharacterEncoding("GBK");
     </s:iterator>
 	</tr>
 </table>
-  </body>
+   </body>
 </html>

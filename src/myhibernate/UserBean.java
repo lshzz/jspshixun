@@ -117,5 +117,47 @@ public class UserBean {
     	 return 0;
     	 
      }
+     
+     //设置用户版主
+     public boolean settingbanzhu(String username,int id)
+     {
+    	 Session session=HibernateSessionFactory.getSession();
+    	 try{
+    		 Transaction tx=session.beginTransaction();
+    		 List<Userinfo> list= session.createSQLQuery("   select *   from userinfo where username='"+username+"' ").addEntity(Userinfo.class).list();
+    		 if(list!=null)
+    		 {
+    		 Userinfo user=list.get(0);
+    		 Board b=new Board();
+    		 if(id==0)
+    		 {
+    			 b.setBoardid(null);
+    		 }
+    		 else
+    		 {
+    			 b.setBoardid(id);
+    		 }
+    		 
+    		 user.setBoard(b);
+    		 session.update(user);
+    		 tx.commit();
+     		 return true;
+    		 }
+ 
+    		 return false;
+    		 
+    	
+    	 }
+    	 catch(Exception e)
+    	 {
+    		 HibernateSessionFactory.closeSession();
+    		 e.printStackTrace();
+    	 }
+    	 return false;
+     }
 
+     
+     
+     
+     
 }

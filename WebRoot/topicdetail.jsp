@@ -51,11 +51,12 @@ Tipicid tip=t.topdetail(id);
     %>
     <br/>
     <%
-    out.println(tip.getTopiccontent());
-      %>
+     out.println(tip.getAuthor());
+      %>:
       <br/>
       <%
-    out.println(tip.getAuthor());
+   
+    out.println(tip.getTopiccontent());
      %>
      <br/>
      <% 
