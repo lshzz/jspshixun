@@ -11,6 +11,7 @@ public class Userinfo implements java.io.Serializable {
 	private Integer id;
 	private String username;
 	private String password;
+	private String type;
 
 	// Constructors
 
@@ -24,10 +25,11 @@ public class Userinfo implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Userinfo(Integer id, String username, String password) {
+	public Userinfo(Integer id, String username, String password, String type) {
 		this.id = id;
 		this.username = username;
 		this.password = password;
+		this.type = type;
 	}
 
 	// Property accessors
@@ -54,6 +56,14 @@ public class Userinfo implements java.io.Serializable {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getType() {
+		return this.type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
 	}
 
 }
