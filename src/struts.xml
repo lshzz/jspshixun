@@ -7,8 +7,9 @@
    <package name="ActionPackge" extends="struts-default">
    <!-- 定义登录的action -->
    <action name="login" class="ActionPackge.LoginAction">
-    <result>Success.jsp</result>
+    <result name="success">Success.jsp</result>
     <result name="fail">Fail.jsp</result>
+      <result name="UserManager">UserManager.jsp</result>
    </action>
    
    <action name="register" class="ActionPackge.RegisterAction">
