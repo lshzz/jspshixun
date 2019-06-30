@@ -23,6 +23,8 @@
 		</property>
 		<mapping resource="myhibernate/Board.hbm.xml" />
 		<mapping resource="myhibernate/Huifutopic.hbm.xml" />
+		<mapping resource="myhibernate/Userinfo.hbm.xml" />
+		<mapping resource="myhibernate/Tipicid.hbm.xml" />
 
 	</session-factory>
 

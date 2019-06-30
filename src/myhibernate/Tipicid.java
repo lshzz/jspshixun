@@ -1,5 +1,8 @@
 package myhibernate;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * Tipicid entity. @author MyEclipse Persistence Tools
  */
@@ -14,6 +17,8 @@ public class Tipicid implements java.io.Serializable {
 	private String topiccontent;
 	private String publishdate;
 	private String author;
+	private Integer stament;
+	private Set huifutopics = new HashSet(0);
 
 	// Constructors
 
@@ -29,13 +34,16 @@ public class Tipicid implements java.io.Serializable {
 
 	/** full constructor */
 	public Tipicid(Integer topicid, Board board, String title,
-			String topiccontent, String publishdate, String author) {
+			String topiccontent, String publishdate, String author,
+			Integer stament, Set huifutopics) {
 		this.topicid = topicid;
 		this.board = board;
 		this.title = title;
 		this.topiccontent = topiccontent;
 		this.publishdate = publishdate;
 		this.author = author;
+		this.stament = stament;
+		this.huifutopics = huifutopics;
 	}
 
 	// Property accessors
@@ -86,6 +94,22 @@ public class Tipicid implements java.io.Serializable {
 
 	public void setAuthor(String author) {
 		this.author = author;
+	}
+
+	public Integer getStament() {
+		return this.stament;
+	}
+
+	public void setStament(Integer stament) {
+		this.stament = stament;
+	}
+
+	public Set getHuifutopics() {
+		return this.huifutopics;
+	}
+
+	public void setHuifutopics(Set huifutopics) {
+		this.huifutopics = huifutopics;
 	}
 
 }

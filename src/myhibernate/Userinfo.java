@@ -9,6 +9,7 @@ public class Userinfo implements java.io.Serializable {
 	// Fields
 
 	private Integer id;
+	private Board board;
 	private String username;
 	private String password;
 	private String type;
@@ -25,8 +26,10 @@ public class Userinfo implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Userinfo(Integer id, String username, String password, String type) {
+	public Userinfo(Integer id, Board board, String username, String password,
+			String type) {
 		this.id = id;
+		this.board = board;
 		this.username = username;
 		this.password = password;
 		this.type = type;
@@ -40,6 +43,14 @@ public class Userinfo implements java.io.Serializable {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public Board getBoard() {
+		return this.board;
+	}
+
+	public void setBoard(Board board) {
+		this.board = board;
 	}
 
 	public String getUsername() {
