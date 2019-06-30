@@ -2,6 +2,11 @@ package ActionPackge;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.apache.struts2.StrutsStatics;
+
 import myhibernate.UserBean;
 import myhibernate.Userinfo;
 import myhibernate.Board;
@@ -57,6 +62,9 @@ public class LoginAction extends ActionSupport {
 			break;
 		case 1:
 			str="success";
+			HttpServletRequest request = (HttpServletRequest)ActionContext.getContext().get(StrutsStatics.HTTP_REQUEST);
+			HttpSession session = request.getSession(true);
+			session.setAttribute("username", username);
 			break;
 		case 2:
 			str = "UserManager";
