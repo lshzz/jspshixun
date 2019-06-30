@@ -1,0 +1,4 @@
+INDEX VERSION 1.121+F:\ASTERISM\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+3391413154.index
+1984344568.index
+1965663873.index
