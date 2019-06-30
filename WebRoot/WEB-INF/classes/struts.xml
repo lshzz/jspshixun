@@ -16,5 +16,9 @@
    <result>Success.jsp</result>
    <result name="fail">Fail.jsp</result>
    </action>
+   
+   <action name="posting" class="ActionPackge.PostingAction">
+   <result name="success">Success.jsp</result>
+   </action>
    </package>
 </struts>    

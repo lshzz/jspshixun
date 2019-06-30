@@ -1,5 +1,6 @@
 package myhibernate;
 
+import java.sql.Time;
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -67,4 +68,8 @@ public class UserBean {
     	 return 0;
     	 
      }
+    
+     
+     
+
 }

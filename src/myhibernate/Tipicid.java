@@ -1,7 +1,5 @@
 package myhibernate;
 
-import java.sql.Time;
-
 /**
  * Tipicid entity. @author MyEclipse Persistence Tools
  */
@@ -14,7 +12,7 @@ public class Tipicid implements java.io.Serializable {
 	private Board board;
 	private String title;
 	private String topiccontent;
-	private Time publishdate;
+	private String publishdate;
 	private String author;
 
 	// Constructors
@@ -31,7 +29,7 @@ public class Tipicid implements java.io.Serializable {
 
 	/** full constructor */
 	public Tipicid(Integer topicid, Board board, String title,
-			String topiccontent, Time publishdate, String author) {
+			String topiccontent, String publishdate, String author) {
 		this.topicid = topicid;
 		this.board = board;
 		this.title = title;
@@ -74,11 +72,11 @@ public class Tipicid implements java.io.Serializable {
 		this.topiccontent = topiccontent;
 	}
 
-	public Time getPublishdate() {
+	public String getPublishdate() {
 		return this.publishdate;
 	}
 
-	public void setPublishdate(Time publishdate) {
+	public void setPublishdate(String publishdate) {
 		this.publishdate = publishdate;
 	}
 

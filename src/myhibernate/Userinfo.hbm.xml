@@ -9,7 +9,6 @@
         <id name="id" type="java.lang.Integer">
             <column name="ID" />
             <generator class="identity" />
-            
         </id>
         <property name="username" type="java.lang.String">
             <column name="USERNAME" length="50" />
