@@ -12,7 +12,7 @@ public class Board implements java.io.Serializable {
 	// Fields
 
 	private Integer boardid;
-	private Long boardname;
+	private String boardname;
 	private Set tipicids = new HashSet(0);
 
 	// Constructors
@@ -22,13 +22,13 @@ public class Board implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public Board(Integer boardid, Long boardname) {
+	public Board(Integer boardid, String boardname) {
 		this.boardid = boardid;
 		this.boardname = boardname;
 	}
 
 	/** full constructor */
-	public Board(Integer boardid, Long boardname, Set tipicids) {
+	public Board(Integer boardid, String boardname, Set tipicids) {
 		this.boardid = boardid;
 		this.boardname = boardname;
 		this.tipicids = tipicids;
@@ -44,11 +44,11 @@ public class Board implements java.io.Serializable {
 		this.boardid = boardid;
 	}
 
-	public Long getBoardname() {
+	public String getBoardname() {
 		return this.boardname;
 	}
 
-	public void setBoardname(Long boardname) {
+	public void setBoardname(String boardname) {
 		this.boardname = boardname;
 	}
 
