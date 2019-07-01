@@ -16,20 +16,16 @@ public class UserBean {
          if(list==null||list.size()==0)
          {
         	 HibernateSessionFactory.closeSession();
-        	 System.out.println("©у");
         	 return 0;
          }
          else
          {
-        	 System.out.println("сп");
         	Userinfo user=list.get(0);
             if(user.getPassword().equals(password))
             {
-            	 System.out.println("сп1");
            	 HibernateSessionFactory.closeSession();
         	return 1;
             }
-            System.out.println("сп2");
          	 HibernateSessionFactory.closeSession();
             return 0;
          }
