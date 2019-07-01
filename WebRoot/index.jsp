@@ -53,7 +53,7 @@ e.printStackTrace();
         <div class="login-btn-content">
             <a href="Login.jsp" target="_blank">登录<div class="line-dotted"></div></a>
             <a href="Register.jsp" target="_blank">注册</a>
-            <a href="zhuxiao.jsp">注销</a><br/>
+            <a href="Zhuxiao.jsp">注销</a><br/>
             <a href="MyTopic.jsp" target="_blank">我的发表<div class="line-dotted"></div></a> 
              <a href="Myhuifu.jsp" target="_blank">我的回复</a>
         </div>

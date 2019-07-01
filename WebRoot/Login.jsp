@@ -6,26 +6,47 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <%request.setCharacterEncoding("GBK");
   response.setCharacterEncoding("GBK");
  %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <base href="<%=basePath%>">
+    <meta charset="UTF-8">
+    <title>登录-BBS</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/login.css">
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/login.js"></script>
+</head>
+<body>
+    <div class="main">
+        <div class="login-box">
+            <div class="body">
+                <div class="content">
+                    <a href="index.html">
+                        <img src="img/login.png">
+                    </a>
+                    <h2>TCQC BBS</h2>
+             <form method="post" action="login.action" name="login">
+                    <input name="username" type="text" placeholder="您的邮箱" id="email"> <br>
+                    <input  name="password" type="password" placeholder="您的登录密码" id="pass"> <br>
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
-  <head>
-    <base href="<%=basePath%>">
-    
-    <title>My JSP 'Login.jsp' starting page</title>
-    
-	<meta http-equiv="pragma" content="no-cache">
-	<meta http-equiv="cache-control" content="no-cache">
-	<meta http-equiv="expires" content="0">    
-	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-	<meta http-equiv="description" content="This is my page">
-	<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
+                    <!--show err info in span-->
+                    <span class="err"></span>
+                    <input   type="submit" name="test" value="登录">
+                    </form>
+                </div>
+            </div>
+            <div class="info">
+                <span>还没有帐号？ </span>
+                <a href="register.html">立即注册 </a>
+                 •
+                <a href="../index.html"> 游客访问</a>
+            </div>
+        </div>
+    </div>
 
-  </head>
-  
-  <body> 
-    <br>
-    <form method="post" action="login.action" name="login"><p>&nbsp;账号:<input type="text" name="username" value=""></p><p>&nbsp;密码:<input type="text" name="password"></p><p>&nbsp;<input   type="submit" name="test" value="登录"></p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p></form></body>
+    <div class="footer">
+        Copyright © 2018, <a href="https://github.com/TCQC">TCQC</a> All Rights Reserved
+    </div>
+</body>
 </html>

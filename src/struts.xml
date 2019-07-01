@@ -14,7 +14,7 @@
    
    <action name="register" class="ActionPackge.RegisterAction">
    <result>Login.jsp</result>
-   <result name="fail">register.jsp</result>
+   <result name="fail">Register.jsp</result>
    </action>
    
     <action name="UserManager" class="ActionPackge.UserManagerAction">

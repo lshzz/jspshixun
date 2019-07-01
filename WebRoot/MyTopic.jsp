@@ -67,6 +67,7 @@ System.out.print(name);
 <div><%=tipic.getTopiccontent() %></div>
 </div>
 </div>
+<hr>
 <% }%>
 
   </body>

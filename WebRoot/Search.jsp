@@ -37,7 +37,8 @@ List<Board> boardlist=boardbean.queryAllBoard();
         </ul>
         <div class="login-btn-content">
             <a href="Login.jsp" target="_blank">登录<div class="line-dotted"></div></a>
-            <a href="Register.jsp" target="_blank">注册</a><br/>
+            <a href="Register.jsp" target="_blank">注册</a>
+            <a href="Zhuxiao.jsp">注销</a><br/>
             <a href="MyTopic.jsp" target="_blank">我的发表<div class="line-dotted"></div></a> 
              <a href="Myhuifu.jsp" target="_blank">我的回复</a>
         </div>
@@ -76,8 +77,8 @@ List<Board> boardlist=boardbean.queryAllBoard();
                 <li>
                     <img src="./img/hico01.gif" width="50" height="50" alt="">
                     <div class="main-ul-contant">
-                        <h3><a href="#"><s:property value="#array.title"/></a><span class="tag-top">置顶</span></h3>
-                        <small><s:property value="#array.topiccontent"/></small><br/>
+                        <h3><a href="#"><s:property value="#array.Board.boardname"/><s:property value="#array.title"/></a><span class="tag-top">置顶</span></h3>
+                        <small><a href="#"><s:property value="#array.topiccontent"/></a></small><br/>
                           <small><s:property value="#array.author"/></small>
                             <small><s:property value="#array.publishdate"/></small>
                     </div>

@@ -17,7 +17,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		catch(Exception e){
 		e.printStackTrace();
 		}
-		System.out.print(name);
 		HuifutopicBean tip=new HuifutopicBean();
 		List<Huifutopic> list=tip.queryHuifu(name);		
 		 %>
@@ -47,9 +46,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    %>
 <div >
 <div><span><%=tipic.getHuifuname() %></span><span><%=tipic.getDate()%></span></div>
-<div><span><%=tipic.getReturncontent()%></span>  </div>
+<div><a href="topicdetail.jsp?tipicid=<%=tipic.getTipicid() %>"><span><%=tipic.getReturncontent()%></span></a>  </div>
 </div>
 </div>
+<hr>
 <% }%>
   </body>
 </html>
