@@ -1,7 +1,7 @@
+
 Apache Derby Network Server － 10.2.2.0 - (485682) 已启动并且已准备好 2019-06-30 02:18:52.316 GMT 时在端口 1527 上接受连接
 ----------------------------------------------------------------
 2019-06-30 02:18:55.128 GMT:
  Booting Derby version The Apache Software Foundation - Apache Derby - 10.2.2.0 - (485682): instance c013800d-016b-a62d-9004-ffff97093e08
-on database directory F:\jspshixun\derby\myeclipse  
+on database directory F:\jspshixun\derby\myeclipse 
 
-Database Class Loader started - derby.database.classpath=''
