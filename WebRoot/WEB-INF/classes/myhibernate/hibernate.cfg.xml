@@ -22,6 +22,8 @@
 			MyEclipse Derby
 		</property>
 		<mapping resource="myhibernate/Userinfo.hbm.xml" />
+		<mapping resource="myhibernate/Tipicid.hbm.xml" />
+		<mapping resource="myhibernate/Board.hbm.xml" />
 
 	</session-factory>
 
