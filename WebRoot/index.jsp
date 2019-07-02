@@ -58,10 +58,7 @@ List list=tip.QueryAllTopic();
 
 
 <div class="qingchufudong"></div>
-
-<div  class="leftf">
-    
-    <table width="1019" height="87" border="1" align="center">
+   <table width="1019" height="87" border="1" align="center">
   <tbody>
   
     <tr>
@@ -79,17 +76,20 @@ List list=tip.QueryAllTopic();
       Tipicid tipic=(Tipicid)list.get(i);
    %>
     <tr>
-      <td height="27" align="center">&nbsp;<%=%></td>
-      <td align="center">&nbsp;<%= %></td>
-      <td align="center">&nbsp;<%= %></td>
-      <td align="center">&nbsp;<%= %></td>
-      <td align="center">&nbsp;<%= %></td>
-      <td align="center">&nbsp;<%= %></td>
+      <td height="27" align="center">&nbsp;<%=tipic.getTitle()%></td>
+      <td align="center">&nbsp;<%=tipic.getTopiccontent() %></td>
+      <td align="center">&nbsp;<%=tipic.getTopiccontent() %></td>
+      <td align="center">&nbsp;<%=tipic.getTitle() %></td>
+      <td align="center">&nbsp;<%=tipic.getTitle() %></td>
+      <td align="center">&nbsp;<%=tipic.getTitle()%></td>
     </tr>
     
     <% }%>
   </tbody>
 </table>
+<div  class="leftf">
+    
+ 
     
     
 
