@@ -1,4 +1,5 @@
 package ActionPackge;
+import java.util.ArrayList;
 import java.util.List;
 
 import myhibernate.UserBean;
@@ -11,6 +12,16 @@ import com.opensymphony.xwork2.ActionSupport;
 public class LoginAction extends ActionSupport {
      private String username;
      private String password;
+     
+    private List<Userinfo> list;
+    
+    
+	public List<Userinfo> getList() {
+		return list;
+	}
+	public void setList(List<Userinfo> list) {
+		this.list = list;
+	}
 	public String getUsername() {
 		return username;
 	}
@@ -24,6 +35,11 @@ public class LoginAction extends ActionSupport {
 		this.password = password;
 	}
 	
+	public String test()
+	{
+		return "UserManager";
+	}
+	
 	@Override
 	public String execute() throws Exception{
 		String str="fail";
@@ -32,9 +48,8 @@ public class LoginAction extends ActionSupport {
 		if("adm".equals(username) && "999".equals(password))
 		{
 			str = "UserManager";
-			List<Userinfo> list = userbean.GetAllUserInfo();
+			list = userbean.GetAllUserInfo();
 
-			ActionContext.getContext().put("list", list);
 			return str;
 		}
 		
