@@ -34,6 +34,15 @@ public class UserBean {
          }
      }
      
+     
+     public List<Userinfo> GetAllUserInfo(){
+    	 Session ses=HibernateSessionFactory.getSession();
+    	 
+    	 List<Userinfo> list= ses.createSQLQuery("  select *   from userinfo").addEntity(Userinfo.class).list();
+    	 HibernateSessionFactory.closeSession();
+    	 return list;
+     }
+     
      //创建单个用户
      public int insertUser(String username,String password)
      {
