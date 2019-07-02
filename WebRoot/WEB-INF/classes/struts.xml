@@ -10,5 +10,10 @@
     <result>Success.jsp</result>
     <result name="fail">Fail.jsp</result>
    </action>
+   
+   <action name="register" class="ActionPackge.RegisterAction">
+   <result>Success.jsp</result>
+   <result name="fail">Fail.jsp</result>
+   </action>
    </package>
 </struts>    
