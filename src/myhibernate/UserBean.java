@@ -2,6 +2,7 @@ package myhibernate;
 
 import java.util.List;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 
 public class UserBean {
@@ -16,22 +17,45 @@ public class UserBean {
          if(list==null||list.size()==0)
          {
         	 HibernateSessionFactory.closeSession();
-        	 System.out.println("空");
+
         	 return 0;
          }
          else
          {
-        	 System.out.println("有");
+
         	Userinfo user=list.get(0);
             if(user.getPassword().equals(password))
             {
-            	 System.out.println("有1");
            	 HibernateSessionFactory.closeSession();
         	return 1;
             }
-            System.out.println("有2");
          	 HibernateSessionFactory.closeSession();
             return 0;
          }
+     }
+     
+     //创建单个用户
+     public int insertUser(String username,String password)
+     {
+    	 Session session=HibernateSessionFactory.getSession();
+    	 
+    	 //查询用户是否存在
+    	 List<Userinfo> list= session.createSQLQuery("   select *   from userinfo where username='"+username+"' ").addEntity(Userinfo.class).list();
+    	 
+    	 //用户不存在则创建用户
+         if(list==null||list.size()==0)
+         {
+        	 Transaction tx=session.beginTransaction();
+        	 Userinfo userinfo=new Userinfo();
+        	 userinfo.setUsername(username);
+        	 userinfo.setPassword(password);
+        	 session.save(userinfo);
+        	 tx.commit();
+        	 HibernateSessionFactory.closeSession();
+        	 return 1;
+         }
+    	 HibernateSessionFactory.closeSession();
+    	 return 0;
+    	 
      }
 }
