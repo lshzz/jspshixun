@@ -2,9 +2,16 @@ package myhibernate;
 
 import java.sql.Time;
 import java.util.List;
+
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
+
+
+
+
+
 
 public class UserBean {
      public  int QueryUserbyUsername(String username,String password)
@@ -110,8 +117,5 @@ public class UserBean {
     	 return 0;
     	 
      }
-    
-     
-     
 
 }
