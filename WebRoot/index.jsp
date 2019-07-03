@@ -3,10 +3,14 @@
 <%@page import="myhibernate.Userinfo"%>
 <%@page import="myhibernate.Tipicid"%>
 <%@page import="myhibernate.Tipicbean"%>
+<%@ taglib prefix="s" uri="/struts-tags"%> 
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
+<%request.setCharacterEncoding("GBK");
+  response.setCharacterEncoding("GBK");
+ %>
 <%
 Tipicbean tip=new Tipicbean();
 List list=tip.QueryAllTopic();
@@ -42,7 +46,7 @@ List list=tip.QueryAllTopic();
 		<div class="leftf">首页</div>
 		<div class="leftf">
 		<form name="form1" method="post" action="Search.action">
-			<input type="text" name="sousuo" id="inputSearch" class="leftf" value="请输入关键字搜索" />
+			<input type="text" name="sousuo" id="inputSearch" class="leftf"  />
 			<input type="submit" name="Submit" value="搜索">
 			</form>
 		</div>

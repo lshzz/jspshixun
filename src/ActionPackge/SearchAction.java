@@ -15,7 +15,7 @@ import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class SearchAction extends ActionSupport {
-	String sousuo;
+	private String sousuo;
     private List<Tipicid> list;
 	
 	public List<Tipicid> getList() {
@@ -40,11 +40,12 @@ public class SearchAction extends ActionSupport {
 
 	@Override
 	public String execute() throws Exception{
+		
 	    System.out.println(sousuo);
 		String str="Search";
 		Tipicbean tipicbean=new Tipicbean();
-		 list=tipicbean.Search("h");
-		 System.out.println(list.get(0).getTitle());
+		 list=tipicbean.Search(sousuo);
+		
 		return str;
 	}
 }

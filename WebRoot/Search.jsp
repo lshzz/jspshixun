@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page language="java" import="java.util.*" pageEncoding="GBK"%>
 <%@ taglib prefix="s" uri="/struts-tags"%> 
 <%
 String path = request.getContextPath();
@@ -12,7 +12,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html >
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>è®ºå›</title>
+<title>ÂÛÌ³</title>
 <style type="text/css">
 	.leftf{
 	float: left;
@@ -32,28 +32,28 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 <body>
 
-<!--å¤´éƒ¨å¼€å§‹-->
+<!--Í·²¿¿ªÊ¼-->
 <div id="header">
 	
 		<a class="leftf" href="#nogo"><img src="images/logo.gif" alt="logo"/></a>
-		<div class="leftf">é¦–é¡µ</div>
+		<div class="leftf">Ê×Ò³</div>
 		<div class="leftf">
 		<form name="form1" method="post" action="Search.action">
-			<input type="text" name="sousuo" id="inputSearch" class="leftf" value="è¯·è¾“å…¥å…³é”®å­—æœç´¢" />
-			<input type="submit" name="Submit" value="æœç´¢">
+			<input type="text" name="sousuo" id="inputSearch" class="leftf" />
+			<input type="submit" name="Submit" value="ËÑË÷">
 			</form>
 		</div>
-		<div class="xrightr"><a>ç™»å½•</a>  <a>æ³¨å†Œ</a></div>
+		<div class="xrightr"><a>µÇÂ¼</a>  <a>×¢²á</a></div>
 	
 </div>
-<!--å¤´éƒ¨ç»“æŸ-->
+<!--Í·²¿½áÊø-->
 <div class="qingchufudong"></div>
-<!--ä¸»ä½“å¼€å§‹-->
+<!--Ö÷Ìå¿ªÊ¼-->
 <div class="leftf">
-	<div class="leftf">æ¿å—1</div>
-	<div class="leftf">æ¿å—2</div>
-	<div class="leftf">æ¿å—3</div>
-	<div class="leftf">æ¿å—4</div>
+	<div class="leftf">°å¿é1</div>
+	<div class="leftf">°å¿é2</div>
+	<div class="leftf">°å¿é3</div>
+	<div class="leftf">°å¿é4</div>
 </div>
 
 
@@ -61,24 +61,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  
 <div  class="leftf">
  <s:iterator value="list" id="array"> 
-	<div >
-	<s:property value="#array.title"/>
-	<s:property value="#array.title"/>
-	
-	
-	
-	<div><span>ä½œè€…</span>  <span>æ—¶é—´</span></div>
-	<div>å†…å®¹</div>
-	</div>
+	<div class="qingchufudong"></div>
+<div><span>	<s:property value="#array.board.boardname"/></span><span>	<s:property value="#array.title"/></span></div>
+<div><span><s:property value="#array.author"/></span>  <span><s:property value="#array.publishdate"/></span></div>
+<div><s:property value="#array.topiccontent"/></div>
+</div>
  </s:iterator> 
 
 
 </div>
 
-<!--ä¸»ä½“ç»“æŸ-->
-<!--åº•éƒ¨å¼€å§‹-->
+<!--Ö÷Ìå½áÊø-->
+<!--µ×²¿¿ªÊ¼-->
 <div class="qingchufudong"></div>
-<div id="footer">åº•éƒ¨. </div>
-<!--åº•éƒ¨ç»“æŸ-->
+<div id="footer">µ×²¿. </div>
+<!--µ×²¿½áÊø-->
 </body>
 </html>
