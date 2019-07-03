@@ -19,8 +19,8 @@
         <property name="topiccontent" type="java.lang.String">
             <column name="TOPICCONTENT" length="1000" />
         </property>
-        <property name="publishdate" type="java.sql.Time">
-            <column name="PUBLISHDATE" length="8" />
+        <property name="publishdate" type="java.lang.String">
+            <column name="PUBLISHDATE" length="50" />
         </property>
         <property name="author" type="java.lang.String">
             <column name="AUTHOR" length="50" />
