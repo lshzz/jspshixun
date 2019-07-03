@@ -21,6 +21,8 @@
 		<property name="myeclipse.connection.profile">
 			MyEclipse Derby
 		</property>
+		<mapping resource="myhibernate/Board.hbm.xml" />
+		<mapping resource="myhibernate/Tipicid.hbm.xml" />
 		<mapping resource="myhibernate/Userinfo.hbm.xml" />
 
 	</session-factory>

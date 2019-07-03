@@ -1,5 +1,9 @@
 #MyEclipse Hibernate Properties
-#Sat Jun 29 17:33:08 CST 2019
+<<<<<<< HEAD
+#Wed Jul 03 08:56:06 CST 2019
+=======
+#Sun Jun 30 13:46:52 CST 2019
+>>>>>>> master
 sessionFactoryName=myhibernate.HibernateSessionFactory
 genBasicCompId=false
 profile=
