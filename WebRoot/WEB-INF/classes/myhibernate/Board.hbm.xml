@@ -8,7 +8,7 @@
     <class name="myhibernate.Board" table="BOARD" schema="APP">
         <id name="boardid" type="java.lang.Integer">
             <column name="BOARDID" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <property name="boardname" type="java.lang.String">
             <column name="BOARDNAME" length="50" not-null="true" unique="true" />
