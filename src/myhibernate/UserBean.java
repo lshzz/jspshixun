@@ -12,7 +12,6 @@ public class UserBean {
     	 Session ses=HibernateSessionFactory.getSession();
     	 
     	 
-    	 
     	 List<Userinfo> list= ses.createSQLQuery("   select *   from userinfo where username='"+username+"' ").addEntity(Userinfo.class).list();
     	 
          if(list==null||list.size()==0)
@@ -25,14 +24,41 @@ public class UserBean {
          {
 
         	Userinfo user=list.get(0);
-            if(user.getPassword().equals(password))
+        	
+        	HibernateSessionFactory.closeSession();
+            if(user.getPassword().equals(password) && user.getType().equals("管理员"))
             {
-           	 HibernateSessionFactory.closeSession();
-        	return 1;
+           	 	
+           	 	return 2;
+            }else if( user.getPassword().equals(password))
+            {	
+       	 		return 1;
+            	
             }
-         	 HibernateSessionFactory.closeSession();
             return 0;
          }
+     }
+     
+     public boolean updata(int UserId, int updataTypeId, String updataString)
+     {
+    	 Session ses=HibernateSessionFactory.getSession();
+    	 Transaction tx = ses.beginTransaction();
+    	 
+    	 Userinfo tem = (Userinfo)ses.get(Userinfo.class, UserId);
+    	 
+    	 if(updataTypeId == 1)
+    	 {
+    		 tem.setPassword(updataString);
+    	 }else if(updataTypeId == 2)
+    	 {
+    		 tem.setType(updataString);
+    	 }
+    	 
+    	 
+    	 ses.update(tem);
+    	 tx.commit();
+    	 HibernateSessionFactory.closeSession();
+    	 return true;
      }
      
      
@@ -60,7 +86,7 @@ public class UserBean {
      }
      
      //创建单个用户
-     public int insertUser(String username,String password)
+     public int insertUser(String username,String password, String type)
      {
     	 Session session=HibernateSessionFactory.getSession();
     	 
@@ -74,6 +100,7 @@ public class UserBean {
         	 Userinfo userinfo=new Userinfo();
         	 userinfo.setUsername(username);
         	 userinfo.setPassword(password);
+        	 userinfo.setType(type);
         	 session.save(userinfo);
         	 tx.commit();
         	 HibernateSessionFactory.closeSession();

@@ -27,5 +27,5 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body> 
     <br>
-    <form method="post" action="login.action" name="login"><p>&nbsp;账号:<input type="text" name="username"></p><p>&nbsp;密码:<input type="text" name="password"></p><p>&nbsp;<input   type="submit" name="test" value="登录"></p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p></form></body>
+    <form method="post" action="login.action" name="login"><p>&nbsp;账号:<input type="text" name="username" value=""></p><p>&nbsp;密码:<input type="text" name="password"></p><p>&nbsp;<input   type="submit" name="test" value="登录"></p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p></form></body>
 </html>

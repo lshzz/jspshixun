@@ -21,6 +21,19 @@
 	   <result name="Updata">UserManager.jsp</result>
 	</action>
 	
+	<action name="toUpdata" class="ActionPackge.UserManagerAction" method="ToUpdata">
+   		<result name="Updata">UpdataData.jsp</result>
+   </action>
+   
+   <action name="Updata" class="ActionPackge.updataDataAction" method="Updata">
+   		<result name="Updata">UserManager.jsp</result>
+   </action>
+	
+  <action name="updataData" class="ActionPackge.updataDataAction">
+   <result name="Updata">UpdataData.jsp</result>
+   </action>
+	
+	
    <action name="posting" class="ActionPackge.PostingAction">
    <result name="success">Success.jsp</result>
    </action>
