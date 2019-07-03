@@ -8,7 +8,7 @@
     <class name="myhibernate.Tipicid" table="TIPICID" schema="APP">
         <id name="topicid" type="java.lang.Integer">
             <column name="TOPICID" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <many-to-one name="board" class="myhibernate.Board" fetch="select">
             <column name="BOARDID" />
@@ -24,6 +24,9 @@
         </property>
         <property name="author" type="java.lang.String">
             <column name="AUTHOR" length="50" />
+        </property>
+        <property name="stament" type="java.lang.Integer">
+            <column name="STAMENT" />
         </property>
         <set name="huifutopics" inverse="true">
             <key>

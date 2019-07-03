@@ -13,11 +13,20 @@
         <property name="boardname" type="java.lang.String">
             <column name="BOARDNAME" length="50" not-null="true" unique="true" />
         </property>
+        <property name="stament" type="java.lang.Integer">
+            <column name="STAMENT" />
+        </property>
         <set name="tipicids" inverse="true">
             <key>
                 <column name="BOARDID" />
             </key>
             <one-to-many class="myhibernate.Tipicid" />
+        </set>
+        <set name="userinfos" inverse="true">
+            <key>
+                <column name="BANZHU" />
+            </key>
+            <one-to-many class="myhibernate.Userinfo" />
         </set>
     </class>
 </hibernate-mapping>

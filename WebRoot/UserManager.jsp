@@ -34,16 +34,16 @@ response.setCharacterEncoding("GBK");
     <th>Type</th>
     <th>dfgdfg</th>
   </tr>
-      <tr> 
+    
   <s:iterator value="list" id="array">  
-         
+           <tr> 
            
            		 <td><s:property value="#array.username"/></td>  
            		 <td><s:property value="#array.password"/></td> 
                  <td>
             		<a href="toUpdata.action?type=1&id= <s:property value='#array.id'/>&name=<s:property value='#array.username'/>" >修改密码</a>
             	</td>   
-            
+            	
             	<td><s:property value="#array.type"/></td> 
              	 <td>
             		<a href="toUpdata.action?type=2&id= <s:property value='#array.id'/>&name=<s:property value='#array.username'/>" >修改用户类型</a>
@@ -52,12 +52,12 @@ response.setCharacterEncoding("GBK");
              	<td>
             		<a href="UserManager.action?id= <s:property value='#array.id'/>" >删除用户</a>
            		 </td>   
-       		
+       		</tr>
     </s:iterator>  
-    	</tr>
+    	
 </table>
 
-
+	</br>
 <table border="1">
   <tr>
     <th>板块IDs</th>

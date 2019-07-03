@@ -1,4 +1,4 @@
-package myhibernate;
+package edu.gxcme;
 
 import java.util.HashSet;
 import java.util.Set;

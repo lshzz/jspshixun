@@ -79,8 +79,12 @@ Tipicid tip=t.topdetail(id);
       <br/>
       <%
       out.print(h.getDate());
+       %>
+            <hr>
+       <%
+       
        }%>
-       <hr>
+  
     <form name="huifu" action="huifu.action" method="post"><p>&nbsp;内容回复: <textarea name="content"></textarea></p><p>&nbsp;<input type="text" name="topid" value="<%=id   %>" style="visibility:hidden;"></p><P>&nbsp;<input type="submit" value="提交" name="button1"></P><P>&nbsp;</P><P>&nbsp;</P><P>&nbsp;</P><P>&nbsp;</P></form>
    
   </body>

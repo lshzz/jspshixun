@@ -39,7 +39,8 @@ public class HuifutopicBean {
     public List<Huifutopic>querytiezi(int id)
     {
     	Session session=HibernateSessionFactory.getSession();
-    	List<Huifutopic> list=session.createSQLQuery("   select *   from Huifutopic where id="+id+" ").addEntity(Huifutopic.class).list();
+    	
+    	List<Huifutopic> list=session.createSQLQuery("   select *   from Huifutopic where topicid="+id+" ").addEntity(Huifutopic.class).list();
     	return list;
     }
 	
