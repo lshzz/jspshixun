@@ -3,14 +3,12 @@
 <%@page import="myhibernate.Userinfo"%>
 <%@page import="myhibernate.Tipicid"%>
 <%@page import="myhibernate.Tipicbean"%>
+<%@ taglib prefix="s" uri="/struts-tags"%> 
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-<%
-Tipicbean tip=new Tipicbean();
-List list=tip.QueryAllTopic();
- %>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html >
 <head>
@@ -63,16 +61,19 @@ List list=tip.QueryAllTopic();
 <div class="qingchufudong"></div>
  
 <div  class="leftf">
- <%
-      for(int i=0;i<list.size();i++){
-      Tipicid tipic=(Tipicid)list.get(i);
-   %>
-<div >
-<div><span><%=tipic.getBoard().getBoardname()%></span><span><%=tipic.getTitle()%></span></div>
-<div><span><%=tipic.getAuthor() %></span>  <span><%=tipic.getPublishdate() %></span></div>
-<div><%=tipic.getTopiccontent() %></div>
-</div>
-<% }%>
+ <s:iterator value="list" id="array"> 
+	<div >
+	<s:property value="#array.title"/>
+	<s:property value="#array.title"/>
+	
+	
+	
+	<div><span>作者</span>  <span>时间</span></div>
+	<div>内容</div>
+	</div>
+ </s:iterator> 
+
+
 </div>
 
 <!--主体结束-->
