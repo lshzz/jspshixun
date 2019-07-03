@@ -1,5 +1,6 @@
 package myhibernate;
 
+import java.sql.Time;
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -43,6 +44,21 @@ public class UserBean {
     	 return list;
      }
      
+     
+     public boolean IdToDeleteUserinfo(int id)
+     {
+    	 Session ses=HibernateSessionFactory.getSession();
+    	 Transaction tx = ses.beginTransaction();
+    	 
+    	 Userinfo tem = (Userinfo)ses.get(Userinfo.class, id);
+    	 ses.delete(tem);
+    	 tx.commit();
+    	 HibernateSessionFactory.closeSession();
+    	 
+    	// List<Userinfo> list= ses.createSQLQuery(" DELETE FROM userinfo where id='"+id+"' ").addEntity(Userinfo.class).list();
+    	 return true;
+     }
+     
      //创建单个用户
      public int insertUser(String username,String password)
      {
@@ -67,4 +83,8 @@ public class UserBean {
     	 return 0;
     	 
      }
+    
+     
+     
+
 }

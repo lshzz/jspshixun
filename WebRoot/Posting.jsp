@@ -1,18 +1,15 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page language="java" import="java.util.*" pageEncoding="GBK"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-<%request.setCharacterEncoding("GBK");
-  response.setCharacterEncoding("GBK");
- %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'Login.jsp' starting page</title>
+    <title>My JSP 'Posting.jsp' starting page</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -26,6 +23,5 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body> 
-    <br>
-    <form method="post" action="login.action" name="login"><p>&nbsp;璐﹀彿:<input type="text" name="username"></p><p>&nbsp;瀵嗙爜:<input type="text" name="password"></p><p>&nbsp;<input   type="submit" name="test" value="鐧诲綍"></p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p></form></body>
+    <form method="post" action="posting.action" name="posting"><p>&nbsp;帖子标题:<input type="text" name="title" style="width: 300px;"></p><p>&nbsp;内&nbsp;&nbsp;&nbsp; 容:<textarea name="topicContent"></textarea></p><p>&nbsp;<br></p><p>&nbsp;<input type="submit" value="发表" name="button2"></p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p></form></body>
 </html>

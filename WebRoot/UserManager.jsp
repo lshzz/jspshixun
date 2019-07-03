@@ -4,7 +4,7 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
+<% %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
@@ -24,9 +24,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-	 <s:iterator value="list" status="li">
-	<s:property value="username"/></br>
-	<s:property value="password"/></br>
-</s:iterator>
+  <table border="1">
+  <tr>
+    <th>Username</th>
+    <th>Passwrord</th>
+    <th>
+  </tr>
+  
+  <s:iterator value="list" id="array">  
+            <tr>  
+           
+            <td><s:property value="#array.username"/></td>  
+            <td><s:property value="#array.password"/></td> 
+             <td>
+            <a href="UserManager.action?id= <s:property value='#array.id'/>" >删除</a></td>   
+            </tr>  
+    </s:iterator>  
+
+</table>
   </body>
 </html>
