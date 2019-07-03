@@ -26,15 +26,15 @@ response.setCharacterEncoding("utf-8");
   </head>
   		
   <body>
-  	<form method="post" action="login.action" name="login">
-  		<p>&nbsp;账号:
-  		<input type="text" name="username"></p>
-  		<p>&nbsp;密码:<input type="text" name="password">
-  		</p><p>&nbsp;<input   type="submit" name="test" value="登录">
-  		</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p></form>
+  	<form method="post" action="Updata.action" name="login">
+    	<s:property value="type"/>
+    	<input  name="type" id="type" readonly="readonly" value="<s:property value='type'/>"/>
+    	<s:property  value="id"/>
+      	<s:property value="ShowTest"/>
+  		<p>&nbsp;<input type="text" name="password">
+  		</p><p>&nbsp;<input   type="submit" name="test" value="修改">
+  	</form>
   
-    <s:property value="type"/>
-    <s:property value="id"/>
-      <s:property value="username"/>
+
   </body>
 </html>

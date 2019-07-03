@@ -72,7 +72,7 @@ public class UserManagerAction extends ActionSupport {
 		{
 			case 1:											//要修改密码	
 				str = "Updata";
-		
+				ShowTest = "把" + name +"的" + "密码修改为：";
 				System.out.println(name);
 				break;
 			case 2:

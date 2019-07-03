@@ -29,9 +29,9 @@ public class updataDataAction extends ActionSupport {
 		}
 		
 		
-		public String Test() throws Exception
+		public String Updata() throws Exception
 		{
-			System.out.println("asdasd");
+			System.out.println(id+" "+ type);
 			return  "Updata";
 		}
 		
