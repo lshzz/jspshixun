@@ -24,5 +24,10 @@
    <action name="posting" class="ActionPackge.PostingAction">
    <result name="success">Success.jsp</result>
    </action>
+   
+      <action name="huifu" class="ActionPackge.HuifuAction">
+   <result name="success">topicdetail.jsp</result>
+    <result name="fail">topicdetail.jsp</result>
+   </action>
    </package>
 </struts>    

@@ -1,12 +1,28 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@page import="myhibernate.Tipicbean"%>
 <%@page import="myhibernate.Tipicid"%>
+<%@page import="myhibernate.Huifutopic"%>
+<%@page import="myhibernate.HuifutopicBean"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-<%Tipicbean t=new Tipicbean();
- int id=Integer.parseInt(request.getParameter("tipicid"));
+<%
+request.setCharacterEncoding("GBK");
+response.setCharacterEncoding("GBK");
+Tipicbean t=new Tipicbean();
+
+ int id;
+
+ if(request.getParameter("tipicid")==null)
+ {
+ id=Integer.parseInt(request.getAttribute("tipicid").toString());
+ }
+ else
+ {
+  id=Integer.parseInt(request.getParameter("tipicid"));
+ }
+
 Tipicid tip=t.topdetail(id); 
    
  %>
@@ -45,10 +61,27 @@ Tipicid tip=t.topdetail(id);
      <% 
     out.println(tip.getPublishdate());
     %>
+    <hr>
     <%
     }
+    HuifutopicBean hf=new HuifutopicBean();
+    List<Huifutopic>list=hf.querytiezi(id);
+    for(int i=0;i<list.size();i++)
+    {
+    Huifutopic h=list.get(i);
+    out.print(h.getReturncontent());
+    
      %>
-    
-    
+     <br/>
+     <%
+     out.print(h.getHuifuname());
+      %>
+      <br/>
+      <%
+      out.print(h.getDate());
+       }%>
+       <hr>
+    <form name="huifu" action="huifu.action" method="post"><p>&nbsp;内容回复: <textarea name="content"></textarea></p><p>&nbsp;<input type="text" name="topid" value="<%=id   %>" style="visibility:hidden;"></p><P>&nbsp;<input type="submit" value="提交" name="button1"></P><P>&nbsp;</P><P>&nbsp;</P><P>&nbsp;</P><P>&nbsp;</P></form>
+   
   </body>
 </html>
