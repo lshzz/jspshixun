@@ -23,12 +23,12 @@ public class Tipicbean {
     //  ËÑË÷Ìû×Ó
     public List<Tipicid> Search(String key){
 		Session sess=HibernateSessionFactory.getSession();
-		 List<Tipicid> list= sess.createSQLQuery("select *from tipicid where title like'%h%'").addEntity(Tipicid.class).list();
-		 HibernateSessionFactory.closeSession();
-//		Criteria ctr=sess.createCriteria(Tipicid.class);
-//		ctr.add(Restrictions.like("title","%"+key+"%"));
-//		ctr.add(Restrictions.like("topiccontent","%"+key+"%"));
-//		List<Tipicid> list=ctr.list();
+//		 List<Tipicid> list= sess.createSQLQuery("select *from tipicid where title like'%h%'").addEntity(Tipicid.class).list();
+//		 HibernateSessionFactory.closeSession();
+		Criteria ctr=sess.createCriteria(Tipicid.class);
+		ctr.add(Restrictions.like("title","%"+key+"%"));
+		ctr.add(Restrictions.like("topiccontent","%"+key+"%"));
+		List<Tipicid> list=ctr.list();
 		return list;
 	}
     

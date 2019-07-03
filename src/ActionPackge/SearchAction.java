@@ -40,7 +40,7 @@ public class SearchAction extends ActionSupport {
 
 	@Override
 	public String execute() throws Exception{
-	    System.out.println("135131asdasd");
+	    System.out.println(sousuo);
 		String str="Search";
 		Tipicbean tipicbean=new Tipicbean();
 		 list=tipicbean.Search("h");

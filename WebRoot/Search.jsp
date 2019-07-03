@@ -1,13 +1,12 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@page import="myhibernate.UserBean"%>
-<%@page import="myhibernate.Userinfo"%>
-<%@page import="myhibernate.Tipicid"%>
-<%@page import="myhibernate.Tipicbean"%>
 <%@ taglib prefix="s" uri="/struts-tags"%> 
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
+<%request.setCharacterEncoding("GBK");
+  response.setCharacterEncoding("GBK");
+ %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html >
