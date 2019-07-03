@@ -1,10 +1,12 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page language="java" import="java.util.*" pageEncoding="GBK"%>
 <%@ taglib prefix="s" uri="/struts-tags"%> 
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-<% %>
+<%request.setCharacterEncoding("GBK");
+response.setCharacterEncoding("GBK");
+ %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
@@ -28,19 +30,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <tr>
     <th>Username</th>
     <th>Passwrord</th>
-    <th>
+    <th>UpdataPassworid</th>
+    <th>Type</th>
+    <th>dfgdfg</th>
   </tr>
   
   <s:iterator value="list" id="array">  
             <tr>  
            
-            <td><s:property value="#array.username"/></td>  
-            <td><s:property value="#array.password"/></td> 
-             <td>
-            <a href="UserManager.action?id= <s:property value='#array.id'/>" >åˆ é™¤</a></td>   
-            </tr>  
+           		 <td><s:property value="#array.username"/></td>  
+           		 <td><s:property value="#array.password"/></td> 
+                 <td>
+            		<a href="toUpdata.action?type=1&id= <s:property value='#array.id'/>&name=<s:property value='#array.username'/>" >É¾³ý</a>
+            	</td>   
+            
+            	<td><s:property value="#array.type"/></td> 
+           
+            	
+             	<td>
+            		<a href="UserManager.action?id= <s:property value='#array.id'/>" >É¾³ý</a>
+           		 </td>   
+       
     </s:iterator>  
-
+     </tr>  
 </table>
   </body>
 </html>

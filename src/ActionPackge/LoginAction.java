@@ -45,21 +45,23 @@ public class LoginAction extends ActionSupport {
 		String str="fail";
 		
 		UserBean userbean=new UserBean();
-		if("adm".equals(username) && "999".equals(password))
+		
+		int result=userbean.QueryUserbyUsername(username, password);
+		
+		switch(result)
 		{
+		case 0:
+			str="fail";
+			break;
+		case 1:
+			str="success";
+			break;
+		case 2:
 			str = "UserManager";
 			list = userbean.GetAllUserInfo();
-
-			return str;
+			break;
 		}
 		
-		
-	
-		int result=userbean.QueryUserbyUsername(username, password);
-		if(result==1)
-		{
-			str="success";
-		}
 		return str;
 	}
 	
