@@ -34,25 +34,42 @@ response.setCharacterEncoding("GBK");
     <th>Type</th>
     <th>dfgdfg</th>
   </tr>
-  
+      <tr> 
   <s:iterator value="list" id="array">  
-            <tr>  
+         
            
            		 <td><s:property value="#array.username"/></td>  
            		 <td><s:property value="#array.password"/></td> 
                  <td>
-            		<a href="toUpdata.action?type=1&id= <s:property value='#array.id'/>&name=<s:property value='#array.username'/>" >删除</a>
+            		<a href="toUpdata.action?type=1&id= <s:property value='#array.id'/>&name=<s:property value='#array.username'/>" >修改密码</a>
             	</td>   
             
             	<td><s:property value="#array.type"/></td> 
-           
+             	 <td>
+            		<a href="toUpdata.action?type=2&id= <s:property value='#array.id'/>&name=<s:property value='#array.username'/>" >修改用户类型</a>
+            	</td> 
             	
              	<td>
-            		<a href="UserManager.action?id= <s:property value='#array.id'/>" >删除</a>
+            		<a href="UserManager.action?id= <s:property value='#array.id'/>" >删除用户</a>
            		 </td>   
-       
+       		
     </s:iterator>  
-     </tr>  
+    	</tr>
+</table>
+
+
+<table border="1">
+  <tr>
+    <th>板块IDs</th>
+    <th>板块名字</th>
+    <th>删除板块</th>
+    <th>顶置板块</th>
+  </tr>
+	<tr>
+	<s:iterator value="list" id="array">  
+		
+    </s:iterator>
+	</tr>
 </table>
   </body>
 </html>

@@ -39,6 +39,28 @@ public class UserBean {
          }
      }
      
+     public boolean updata(int UserId, int updataTypeId, String updataString)
+     {
+    	 Session ses=HibernateSessionFactory.getSession();
+    	 Transaction tx = ses.beginTransaction();
+    	 
+    	 Userinfo tem = (Userinfo)ses.get(Userinfo.class, UserId);
+    	 
+    	 if(updataTypeId == 1)
+    	 {
+    		 tem.setPassword(updataString);
+    	 }else if(updataTypeId == 2)
+    	 {
+    		 tem.setType(updataString);
+    	 }
+    	 
+    	 
+    	 ses.update(tem);
+    	 tx.commit();
+    	 HibernateSessionFactory.closeSession();
+    	 return true;
+     }
+     
      
      public List<Userinfo> GetAllUserInfo(){
     	 Session ses=HibernateSessionFactory.getSession();

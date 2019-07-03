@@ -27,11 +27,12 @@ response.setCharacterEncoding("utf-8");
   		
   <body>
   	<form method="post" action="Updata.action" name="login">
-    	<s:property value="type"/>
-    	<input  name="type" id="type" readonly="readonly" value="<s:property value='type'/>"/>
-    	<s:property  value="id"/>
+    	
+    	修改id为：<input  name="type" id="type" readonly="readonly" value="<s:property value='type'/>"/>
+    	用户id为：<input  name="id" id="id" readonly="readonly" value="<s:property value='id'/>"/>
+    	</br>
       	<s:property value="ShowTest"/>
-  		<p>&nbsp;<input type="text" name="password">
+  		<p>&nbsp;<input type="text" name="UpdataText">
   		</p><p>&nbsp;<input   type="submit" name="test" value="修改">
   	</form>
   

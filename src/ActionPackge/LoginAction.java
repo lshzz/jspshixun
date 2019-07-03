@@ -4,6 +4,7 @@ import java.util.List;
 
 import myhibernate.UserBean;
 import myhibernate.Userinfo;
+import myhibernate.Board;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
@@ -15,6 +16,7 @@ public class LoginAction extends ActionSupport {
      
     private List<Userinfo> list;
     
+    private List<Board> listBoard;
     
 	public List<Userinfo> getList() {
 		return list;
