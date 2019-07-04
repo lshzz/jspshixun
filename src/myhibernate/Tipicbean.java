@@ -87,6 +87,10 @@ public class Tipicbean {
         }       
     }
     
+    
+    
+    
+    
     //  根据用户名查找的帖子
     public List<Tipicid> querByname(String name)
     {

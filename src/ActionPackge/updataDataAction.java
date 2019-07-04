@@ -4,6 +4,9 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import myhibernate.Board;
+import myhibernate.BoardBean;
+import myhibernate.Tipicbean;
 import myhibernate.UserBean;
 import myhibernate.Userinfo;
 
@@ -20,9 +23,32 @@ public class updataDataAction extends ActionSupport {
 		return list;
 	}
 
+		private List<Board> listBoard;
+	    
+		public List<Board> getListBoard() {
+			return listBoard;
+		}
+		public void setListBoard(List<Board> listBoard) {
+			this.listBoard = listBoard;
+		}
+	
+
+
+		private String InputText;
+
+	public String getInputText() {
+			return InputText;
+		}
+
+		public void setInputText(String inputText) {
+			InputText = inputText;
+		}
+
 	public void setList(List<Userinfo> list) {
 		this.list = list;
 	}
+
+
 
 		private String UpdataText;
 		
@@ -55,17 +81,41 @@ public class updataDataAction extends ActionSupport {
 		}
 		
 		
+
+		
+
+		//Ìí¼ÓÄ£¿é
+		public String AddBoard() throws Exception
+		{
+			UserBean userbean=new UserBean();
+			BoardBean tipicbean = new BoardBean(); 
+			if( tipicbean.insertBoard(InputText) ==1 )
+			{
+				list = userbean.GetAllUserInfo();
+				listBoard = tipicbean.queryAllBoard();
+				return "Updata";
+			}else
+			{
+				return "fail";
+			}
+			
+			
+			
+		}
+
 		
 		
 		
 		public String Updata() throws Exception
 		{
 			UserBean userbean=new UserBean();
+			BoardBean tipicbean = new BoardBean();
 			System.out.println(id+" "+ type + " "+ UpdataText);
 			
 			userbean.updata(id, type,UpdataText );
 		
 			list = userbean.GetAllUserInfo();
+			listBoard = tipicbean.queryAllBoard();
 			return  "Updata";
 		}
 		

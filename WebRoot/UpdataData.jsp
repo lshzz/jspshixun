@@ -48,7 +48,6 @@ List<Board> list=board.queryBoard();
   <input type="hidden" name="username" value="<%=str %>"><br>
   <input type="submit" value="ÐÞ¸Ä" name="button1">
             		</form>
-  
 
   </body>
 </html>

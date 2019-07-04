@@ -55,15 +55,16 @@ response.setCharacterEncoding("GBK");
             	</td> 
             	
              	<td>
-            		<a href="UserManager.action?id= <s:property value='#array.id'/>" >删除用户</a>
+            		<a href="UserManager.action?id= <s:property value='#array.id'/>&type=1" >删除用户</a>
+            
            		 </td>   
  
        		</tr>
     </s:iterator>  
     	
 </table>
-
-	<br>
+ <a href="Register.jsp">添加用户</a>
+	</br>
 <table border="1">
   <tr>
     <th>板块IDs</th>
@@ -71,11 +72,26 @@ response.setCharacterEncoding("GBK");
     <th>删除板块</th>
     <th>顶置板块</th>
   </tr>
+	
+	<s:iterator value="listBoard" id="array">  
 	<tr>
-	<s:iterator value="list" id="array">  
-		
-    </s:iterator>
+		<td>
+		 	<s:property value="#array.boardid"/>
+		</td>
+		<td>
+		 	<s:property value="#array.boardname"/>
+		</td>
+		<td>
+			<a href="UserManager.action?id= <s:property value='#array.boardid'/>&type=2" >删除板块</a>    
+        </td> 
+ 
+        <td>
+        
+        </td>
 	</tr>
+    </s:iterator>
+	
 </table>
+ <a href="AddBoard.jsp">添加板块</a>
    </body>
 </html>

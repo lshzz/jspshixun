@@ -1,5 +1,7 @@
 package myhibernate;
 
+import java.util.List;
+
 /**
  * Userinfo entity. @author MyEclipse Persistence Tools
  */
@@ -48,6 +50,15 @@ public class Userinfo implements java.io.Serializable {
 	public Board getBoard() {
 		return this.board;
 	}
+	
+	 private List<Board> listBoard;
+	    
+		public List<Board> getListBoard() {
+			return listBoard;
+		}
+		public void setListBoard(List<Board> listBoard) {
+			this.listBoard = listBoard;
+		}
 
 	public void setBoard(Board board) {
 		this.board = board;

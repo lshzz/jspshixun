@@ -21,9 +21,12 @@
 	   <result name="Updata">UserManager.jsp</result>
 	</action>
 	
-	<action name="toUpdata" class="ActionPackge.UserManagerAction" method="ToUpdata">
+   
+   	<action name="toUpdata" class="ActionPackge.UserManagerAction" method="ToUpdata">
    		<result name="Updata">UpdataData.jsp</result>
+   		<result name="UpdataPassword">UpdataDataPassword.jsp</result>
    </action>
+
    
    <action name="Updata" class="ActionPackge.updataDataAction" method="Updata">
    		<result name="Updata">UserManager.jsp</result>
@@ -47,9 +50,19 @@
     <result name="fail">topicdetail.jsp</result>
    </action>
    
+   <action name="UserManager" class="ActionPackge.UserManagerAction">
+	   <result name="Updata">UserManager.jsp</result>
+	</action>
    
          <action name="settingbanzhu" class="ActionPackge.SettingbanzhuAction">
          <result name="NONE">UserManager.jsp</result>
+   </action>
+   
+   
+    
+   <action name="addBoard" class="ActionPackge.updataDataAction" method="AddBoard">
+	  	<result name="Updata">UserManager.jsp</result>
+	  	<result name="fail">Fail.jsp</result>
    </action>
    </package>
 </struts>    

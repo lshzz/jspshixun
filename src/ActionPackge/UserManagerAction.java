@@ -1,6 +1,9 @@
 package ActionPackge;
 
 import java.util.List;
+
+import myhibernate.Board;
+import myhibernate.BoardBean;
 import myhibernate.UserBean;
 import myhibernate.Userinfo;
 import javax.servlet.http.HttpServletRequest;
@@ -30,6 +33,15 @@ public class UserManagerAction extends ActionSupport {
 		ShowTest = showTest;
 	}
 
+	 private List<Board> listBoard;
+	    
+		public List<Board> getListBoard() {
+			return listBoard;
+		}
+		public void setListBoard(List<Board> listBoard) {
+			this.listBoard = listBoard;
+		}
+	
 
 	private String ShowTest;
     
@@ -62,6 +74,8 @@ public class UserManagerAction extends ActionSupport {
 	
 	
 	
+	
+	
 	public String ToUpdata() throws Exception
 	{
 		HttpServletRequest request = (HttpServletRequest)ActionContext.getContext().get(StrutsStatics.HTTP_REQUEST);
@@ -71,14 +85,15 @@ public class UserManagerAction extends ActionSupport {
 		switch(type)
 		{
 			case 1:											//要修改密码	
-				str = "Updata";
+				str = "UpdataPassword";
 				ShowTest = "把" + name +"的" + "密码修改为：";
+				System.out.println("执行");
 				System.out.println(name);
 				break;
 			case 2:
 				break;
 		}
-		return  "Updata";
+		return str;
 	}
 
 	
@@ -90,10 +105,21 @@ public class UserManagerAction extends ActionSupport {
 		request.setCharacterEncoding("GBK");
 	   
 		UserBean userbean=new UserBean();
-		System.out.println( Integer.parseInt( request.getParameter("id").trim()));
-		userbean.IdToDeleteUserinfo(Integer.parseInt( request.getParameter("id").trim()));
-		list = userbean.GetAllUserInfo();
+		BoardBean tipicbean = new BoardBean(); 
 		
+		System.out.println( Integer.parseInt( request.getParameter("id").trim()));
+		int typex = Integer.parseInt( request.getParameter("type").trim());
+		if(typex == 1)
+		{
+			userbean.IdToDeleteUserinfo(Integer.parseInt( request.getParameter("id").trim()));
+		}else if(typex == 2)
+		{
+			tipicbean.IdToDeleteBoard(Integer.parseInt( request.getParameter("id").trim()));
+		}
+		
+		list = userbean.GetAllUserInfo();
+		listBoard = tipicbean.queryAllBoard();
 		return "Updata";
+
 	}
 }

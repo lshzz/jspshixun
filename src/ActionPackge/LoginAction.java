@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.struts2.StrutsStatics;
 
+import myhibernate.BoardBean;
 import myhibernate.UserBean;
 import myhibernate.Userinfo;
 import myhibernate.Board;
@@ -23,6 +24,12 @@ public class LoginAction extends ActionSupport {
     
     private List<Board> listBoard;
     
+	public List<Board> getListBoard() {
+		return listBoard;
+	}
+	public void setListBoard(List<Board> listBoard) {
+		this.listBoard = listBoard;
+	}
 	public List<Userinfo> getList() {
 		return list;
 	}
@@ -52,7 +59,7 @@ public class LoginAction extends ActionSupport {
 		String str="fail";
 		
 		UserBean userbean=new UserBean();
-		
+		BoardBean boardBean = new BoardBean();
 		int result=userbean.QueryUserbyUsername(username, password);
 		
 		switch(result)
@@ -69,6 +76,7 @@ public class LoginAction extends ActionSupport {
 		case 2:
 			str = "UserManager";
 			list = userbean.GetAllUserInfo();
+			listBoard = boardBean.queryAllBoard();
 			break;
 		}
 		
