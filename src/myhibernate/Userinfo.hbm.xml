@@ -10,6 +10,9 @@
             <column name="ID" />
             <generator class="identity" />
         </id>
+        <many-to-one name="board" class="myhibernate.Board" fetch="select">
+            <column name="BANZHU" />
+        </many-to-one>
         <property name="username" type="java.lang.String">
             <column name="USERNAME" length="50" />
         </property>
