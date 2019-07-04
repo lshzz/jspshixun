@@ -31,7 +31,6 @@ public class Tipicid implements java.io.Serializable {
 		this.topicid = topicid;
 		this.title = title;
 	}
-
 	/** full constructor */
 	public Tipicid(Integer topicid, Board board, String title,
 			String topiccontent, String publishdate, String author,

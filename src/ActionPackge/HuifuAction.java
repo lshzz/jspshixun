@@ -29,6 +29,8 @@ public class HuifuAction extends ActionSupport {
 	public void setContent(String content) {
 		this.content = content;
 	}
+	
+	
 	@Override
 	public String execute() throws Exception{
 		HttpServletRequest request = (HttpServletRequest)ActionContext.getContext().get(StrutsStatics.HTTP_REQUEST);

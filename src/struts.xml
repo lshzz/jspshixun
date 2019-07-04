@@ -46,5 +46,11 @@
    <result name="success">topicdetail.jsp</result>
     <result name="fail">topicdetail.jsp</result>
    </action>
+   
+   
+   <action name="addBoard" class="ActionPackge.updataDataAction" method="AddBoard">
+	  	<result name="Updata">UserManager.jsp</result>
+	  	<result name="fail">Fail.jsp</result>
+   </action>
    </package>
 </struts>    

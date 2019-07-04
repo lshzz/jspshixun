@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import myhibernate.Board;
+import myhibernate.Tipicbean;
 import myhibernate.UserBean;
 import myhibernate.Userinfo;
 
@@ -19,6 +21,27 @@ public class updataDataAction extends ActionSupport {
 		public List<Userinfo> getList() {
 		return list;
 	}
+		
+		
+		 private List<Board> listBoard;
+		    
+			public List<Board> getListBoard() {
+				return listBoard;
+			}
+			public void setListBoard(List<Board> listBoard) {
+				this.listBoard = listBoard;
+			}
+		
+		
+		private String InputText;
+
+	public String getInputText() {
+			return InputText;
+		}
+
+		public void setInputText(String inputText) {
+			InputText = inputText;
+		}
 
 	public void setList(List<Userinfo> list) {
 		this.list = list;
@@ -56,6 +79,27 @@ public class updataDataAction extends ActionSupport {
 		
 		
 		
+		
+		
+		
+		//Ìí¼ÓÄ£¿é
+		public String AddBoard() throws Exception
+		{
+			UserBean userbean=new UserBean();
+			Tipicbean tipicbean = new Tipicbean(); 
+			if( tipicbean.insertBoard(InputText) ==1 )
+			{
+				list = userbean.GetAllUserInfo();
+				listBoard = tipicbean.GatAllBoard();
+				return "Updata";
+			}else
+			{
+				return "fail";
+			}
+			
+			
+			
+		}
 		
 		
 		public String Updata() throws Exception

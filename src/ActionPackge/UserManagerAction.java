@@ -1,6 +1,9 @@
 package ActionPackge;
 
 import java.util.List;
+
+import myhibernate.Board;
+import myhibernate.Tipicbean;
 import myhibernate.UserBean;
 import myhibernate.Userinfo;
 import javax.servlet.http.HttpServletRequest;
@@ -20,6 +23,16 @@ public class UserManagerAction extends ActionSupport {
     public String getName() {
 		return name;
 	}
+    
+    private List<Board> listBoard;
+    
+	public List<Board> getListBoard() {
+		return listBoard;
+	}
+	public void setListBoard(List<Board> listBoard) {
+		this.listBoard = listBoard;
+	}
+    
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -76,9 +89,16 @@ public class UserManagerAction extends ActionSupport {
 				System.out.println(name);
 				break;
 			case 2:
+				ShowTest = "把" + name +"的" + "类型修改为：";
 				break;
 		}
 		return  "Updata";
+	}
+	
+	public String ToUpdataBoardType()throws Exception
+	{
+		
+		return "toUpdataBoard";
 	}
 
 	
@@ -90,10 +110,20 @@ public class UserManagerAction extends ActionSupport {
 		request.setCharacterEncoding("GBK");
 	   
 		UserBean userbean=new UserBean();
-		System.out.println( Integer.parseInt( request.getParameter("id").trim()));
-		userbean.IdToDeleteUserinfo(Integer.parseInt( request.getParameter("id").trim()));
-		list = userbean.GetAllUserInfo();
+		Tipicbean tipicbean = new Tipicbean(); 
 		
+		System.out.println( Integer.parseInt( request.getParameter("id").trim()));
+		int typex = Integer.parseInt( request.getParameter("type").trim());
+		if(typex == 1)
+		{
+			userbean.IdToDeleteUserinfo(Integer.parseInt( request.getParameter("id").trim()));
+		}else if(typex == 2)
+		{
+			tipicbean.IdToDeleteBoard(Integer.parseInt( request.getParameter("id").trim()));
+		}
+		
+		list = userbean.GetAllUserInfo();
+		listBoard = tipicbean.GatAllBoard();
 		return "Updata";
 	}
 }

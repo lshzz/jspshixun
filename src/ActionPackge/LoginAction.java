@@ -2,6 +2,8 @@ package ActionPackge;
 import java.util.ArrayList;
 import java.util.List;
 
+import myhibernate.Tipicbean;
+import myhibernate.Tipicid;
 import myhibernate.UserBean;
 import myhibernate.Userinfo;
 import myhibernate.Board;
@@ -18,6 +20,12 @@ public class LoginAction extends ActionSupport {
     
     private List<Board> listBoard;
     
+	public List<Board> getListBoard() {
+		return listBoard;
+	}
+	public void setListBoard(List<Board> listBoard) {
+		this.listBoard = listBoard;
+	}
 	public List<Userinfo> getList() {
 		return list;
 	}
@@ -47,21 +55,23 @@ public class LoginAction extends ActionSupport {
 		String str="fail";
 		
 		UserBean userbean=new UserBean();
+		Tipicbean tipicbean = new Tipicbean(); 
 		
 		int result=userbean.QueryUserbyUsername(username, password);
 		
 		switch(result)
 		{
-		case 0:
-			str="fail";
-			break;
-		case 1:
-			str="success";
-			break;
-		case 2:
-			str = "UserManager";
-			list = userbean.GetAllUserInfo();
-			break;
+			case 0:
+				str="fail";
+				break;
+			case 1:
+				str="success";
+				break;
+			case 2:
+				str = "UserManager";
+				list = userbean.GetAllUserInfo();
+				listBoard = tipicbean.GatAllBoard();
+				break;
 		}
 		
 		return str;

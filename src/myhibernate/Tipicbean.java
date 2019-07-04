@@ -19,6 +19,58 @@ public class Tipicbean {
    		List list=sess.createCriteria(Tipicid.class).list();
    		return list;
     }
+    
+    public List<Board> GatAllBoard()
+    {
+	    Session ses=HibernateSessionFactory.getSession();
+	   	 
+	   	 List<Board> list= ses.createSQLQuery("  select *  from board").addEntity(Board.class).list();
+	   	 HibernateSessionFactory.closeSession();
+	   	 System.out.println("测试+" + list.get(0).getBoardname());
+	   	 
+	   	 return list;
+    }
+    
+    //添加板块
+    public int insertBoard(String Input)
+    {
+   	 Session session=HibernateSessionFactory.getSession();
+   	 
+   	 //查询板块是否存在
+   	 List<Board> list= session.createSQLQuery("   select *   from  board  where boardname='"+Input+"' ").addEntity(Board.class).list();
+   	 
+   	 //用户不存在则创建板块
+        if(list==null||list.size()==0)
+        {
+	       	 Transaction tx=session.beginTransaction();
+	       	Board board=new Board();
+	       	 board.setBoardname(Input);
+	    
+	       	 session.save(board);
+	       	 tx.commit();
+	       	 HibernateSessionFactory.closeSession();
+	       	 return 1;
+        }
+   	 HibernateSessionFactory.closeSession();
+   	 return 0;
+   	 
+    }
+    
+    
+    
+    public boolean IdToDeleteBoard(int id)
+    {
+	   	 Session ses=HibernateSessionFactory.getSession();
+	   	 Transaction tx = ses.beginTransaction();
+	   	 
+	   	 Board tem = (Board)ses.get(Board.class, id);
+	   	 ses.delete(tem);
+	   	 tx.commit();
+	   	 HibernateSessionFactory.closeSession();
+	   	 
+	   	// List<Userinfo> list= ses.createSQLQuery(" DELETE FROM userinfo where id='"+id+"' ").addEntity(Userinfo.class).list();
+	   	 return true;
+    }
 	
     //  搜索帖子
     public List<Tipicid> Search(String key){
@@ -32,7 +84,6 @@ public class Tipicbean {
 		 System.out.println(list.get(0).getTitle()+"aaaaaaaaa");
 		return list;
 	}
-    
 
     //贴子发表
     public boolean postings(String title,String topicContent,String publishDate,String author,int boardId)
@@ -67,7 +118,6 @@ public class Tipicbean {
     public Tipicid topdetail(int id)
     {
         Session session=HibernateSessionFactory.getSession();
-   	    
         try
         {
         	 List<Tipicid> list= session.createSQLQuery("   select *   from TIPICID where topicid="+id+" ").addEntity(Tipicid.class).list();

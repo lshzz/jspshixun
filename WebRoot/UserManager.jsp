@@ -26,6 +26,9 @@ response.setCharacterEncoding("GBK");
   </head>
   
   <body>
+  
+  <a href="AddBoard.jsp">添加板块</a>
+  
   <table border="1">
   <tr>
     <th>Username</th>
@@ -48,9 +51,8 @@ response.setCharacterEncoding("GBK");
              	 <td>
             		<a href="toUpdata.action?type=2&id= <s:property value='#array.id'/>&name=<s:property value='#array.username'/>" >修改用户类型</a>
             	</td> 
-            	
              	<td>
-            		<a href="UserManager.action?id= <s:property value='#array.id'/>" >删除用户</a>
+            		<a href="UserManager.action?id= <s:property value='#array.id'/>&type=1" >删除用户</a>
            		 </td>   
        		</tr>
     </s:iterator>  
@@ -65,11 +67,25 @@ response.setCharacterEncoding("GBK");
     <th>删除板块</th>
     <th>顶置板块</th>
   </tr>
+	
+	<s:iterator value="listBoard" id="array">  
 	<tr>
-	<s:iterator value="list" id="array">  
-		
-    </s:iterator>
+		<td>
+		 	<s:property value="#array.boardid"/>
+		</td>
+		<td>
+		 	<s:property value="#array.boardname"/>
+		</td>
+		<td>
+			<a href="UserManager.action?id= <s:property value='#array.boardid'/>&type=2" >删除板块</a>    
+        </td> 
+ 
+        <td>
+        
+        </td>
 	</tr>
+    </s:iterator>
+	
 </table>
   </body>
 </html>

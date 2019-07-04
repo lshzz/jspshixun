@@ -61,7 +61,9 @@ public class Board implements java.io.Serializable {
 		return this.stament;
 	}
 
-	public void setStament(Integer stament) {
+	public void setStament(int stament) {
+		
+		
 		this.stament = stament;
 	}
 
