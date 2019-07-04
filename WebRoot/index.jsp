@@ -3,16 +3,20 @@
 <%@page import="myhibernate.Userinfo"%>
 <%@page import="myhibernate.Tipicid"%>
 <%@page import="myhibernate.Tipicbean"%>
+<%@ taglib prefix="s" uri="/struts-tags"%> 
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
+<%request.setCharacterEncoding("GBK");
+  response.setCharacterEncoding("GBK");
+ %>
 <%
 Tipicbean tip=new Tipicbean();
 List list=tip.QueryAllTopic();
  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html >
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>论坛</title>
@@ -41,7 +45,10 @@ List list=tip.QueryAllTopic();
 		<a class="leftf" href="#nogo"><img src="images/logo.gif" alt="logo"/></a>
 		<div class="leftf">首页</div>
 		<div class="leftf">
-			<input type="text" id="inputSearch" class="leftf" value="请输入关键字搜索" />
+		<form name="form1" method="post" action="Search.action">
+			<input type="text" name="sousuo" id="inputSearch" class="leftf"  />
+			<input type="submit" name="Submit" value="搜索">
+			</form>
 		</div>
 		<div class="xrightr"><a>登录</a>  <a>注册</a></div>
 	
@@ -65,7 +72,11 @@ List list=tip.QueryAllTopic();
       Tipicid tipic=(Tipicid)list.get(i);
    %>
 <div >
+
 <div><span><%=tipic.getBoard().getBoardname() %></span><a href="topicdetail.jsp?tipicid=<%=tipic.getTopicid() %>"><span><%=tipic.getTitle()%></span></a></div>
+
+<div><span><%=tipic.getBoard().getBoardname()%></span><span><%=tipic.getTitle()%></span></div>
+
 <div><span><%=tipic.getAuthor() %></span>  <span><%=tipic.getPublishdate() %></span></div>
 <div><%=tipic.getTopiccontent() %></div>
 </div>
