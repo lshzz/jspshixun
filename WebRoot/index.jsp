@@ -63,7 +63,7 @@ e.printStackTrace();
 			<input type="submit" name="Submit" value="搜索">
 			</form>
 		</div>
-		<div class="xrightr"><a href="Login.jsp">登录</a>  <a>注册</a>   <a href="MyTopic.jsp">我的发表</a>  <a href="Myhuifu.jsp">我的回复</a></div>
+		<div class="xrightr"><a href="Login.jsp">登录</a>  <a href="Register.jsp">注册</a>   <a href="MyTopic.jsp">我的发表</a>  <a href="Myhuifu.jsp">我的回复</a></div>
 	
 </div>
 <!--头部结束-->

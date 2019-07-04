@@ -47,6 +47,7 @@ public class Tipicbean {
        	 top.setPublishdate(publishDate);
        	 top.setTitle(title);
        	 top.setTopiccontent(topicContent);
+       	 top.setStament(0);
        	 Board b=new Board();
        	 b.setBoardid(boardId);
        	 top.setBoard(b);
@@ -100,9 +101,40 @@ public class Tipicbean {
     public List<Tipicid> querBoardById(int  id)
     {
     	Session sess=HibernateSessionFactory.getSession();
-		 List<Tipicid> list= sess.createSQLQuery("select *from tipicid where boardid="+id+" ").addEntity(Tipicid.class).list();
-		
+		 List<Tipicid> list= sess.createSQLQuery("select *from tipicid where boardid="+id+" ORDER BY stament DESC ").addEntity(Tipicid.class).list();
+		 
 		 return list;
     }
+    
+    //根据帖子id删除帖子
+  public boolean deletetiezibyid(int id)
+  {
+	  try{
+	  Session session=HibernateSessionFactory.getSession();
+	  Transaction tx=session.beginTransaction();
+	  Tipicid tipicid=(Tipicid)session.get(Tipicid.class, id);
+	  session.delete(tipicid);
+	  tx.commit();
+	  HibernateSessionFactory.closeSession();
+	  return true;
+	  }
+	  catch (Exception e) {
+		e.printStackTrace();
+		HibernateSessionFactory.closeSession();
+		return false;
+	}
+  }
+  
+  //帖子置顶
+  public void tiezizhiding(int id)
+  {
+	  Session session=HibernateSessionFactory.getSession();
+	  Transaction tx=session.beginTransaction();
+	  Tipicid tipicid=(Tipicid)session.get(Tipicid.class, id);
+	  tipicid.setStament(1);
+	  session.update(tipicid);
+	  tx.commit();
+	  HibernateSessionFactory.closeSession();
+  }
 
 }

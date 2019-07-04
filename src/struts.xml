@@ -51,5 +51,15 @@
          <action name="settingbanzhu" class="ActionPackge.SettingbanzhuAction">
          <result name="NONE">UserManager.jsp</result>
    </action>
+            <action name="deletetiezi" class="ActionPackge.DeletetieziAction">
+         <result name="success" type="redirect">Boardshow.jsp</result>
+         <result name="fail" type="redirect">Boardshow.jsp</result>
+   </action>
+               <action name="zhidingtiezi" class="ActionPackge.ZhidingtieziAction">
+         <result name="success" type="redirect">Boardshow.jsp</result>
+   </action>
+  
+
+
    </package>
 </struts>    

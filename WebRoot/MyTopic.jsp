@@ -62,7 +62,7 @@ System.out.print(name);
       Tipicid tipic=(Tipicid)list.get(i);
    %>
 <div >
-<div><span><%=tipic.getBoard().getBoardname() %></span><a href="topicdetail.jsp?tipicid=<%=tipic.getTopicid() %>"><span><%=tipic.getTitle()%></span></a></div>
+<div><span><%=tipic.getBoard().getBoardname() %></span></div><div><a href="topicdetail.jsp?tipicid=<%=tipic.getTopicid() %>"><span><%=tipic.getTitle()%></span></a></div>
 <div><span><%=tipic.getAuthor() %></span>  <span><%=tipic.getPublishdate() %></span></div>
 <div><%=tipic.getTopiccontent() %></div>
 </div>

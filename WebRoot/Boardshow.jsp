@@ -4,6 +4,9 @@
 <%@page import="myhibernate.Tipicbean"%>
 <%@page import="myhibernate.BoardBean"%>
 <%@page import="myhibernate.Board"%>
+<%@page import="myhibernate.UserBean"%>
+<%@page import="myhibernate.Userinfo"%>
+<%@page import="myhibernate.HibernateSessionFactory"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -17,11 +20,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 	 if(request.getParameter("boardid")==null)
 	 {
-	 id=Integer.parseInt(request.getAttribute("boardid").toString());
+	 id=Integer.parseInt(session.getAttribute("boardid").toString());
 	 }
 	 else
 	 {
 	  id=Integer.parseInt(request.getParameter("boardid"));
+	  session.setAttribute("boardid",id);
 	 }
 	
 	List<Tipicid> list=t.querBoardById(id); 
@@ -104,11 +108,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  <%
       for(int i=0;i<list.size();i++){
       Tipicid tipic=(Tipicid)list.get(i);
+
    %>
 <div >
-<div><span><%=tipic.getBoard().getBoardname() %></span><a href="topicdetail.jsp?tipicid=<%=tipic.getTopicid() %>"><span><%=tipic.getTitle()%></span></a></div>
-<div><span><%=tipic.getAuthor() %></span>  <span><%=tipic.getPublishdate() %></span></div>
-<div><%=tipic.getTopiccontent() %></div>
+<%if(i==0){ %>
+<div><span><%=tipic.getBoard().getBoardname() %></span></div><%} %>
+<div><a href="topicdetail.jsp?tipicid=<%=tipic.getTopicid() %>"><span><%=tipic.getTitle()%></span></a><span><%=tipic.getPublishdate() %></span><% if(session.getAttribute("username")!=null){UserBean userbean=new UserBean();
+List<Userinfo>userlist=userbean.searchshengfen(session.getAttribute("username").toString());
+if(userlist.get(0).getType().equals("管理员")||userlist.get(0).getBoard().getBoardname().equals(tipic.getBoard().getBoardname()))
+{
+%>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="deletetiezi.action?id=<%=tipic.getTopicid()%>">删除帖子</a>&nbsp;&nbsp;<a href="zhidingtiezi.action?id=<%=tipic.getTopicid()%>">置顶</a>
+<%
+}
+
+} 
+%>
+</div>
 </div>
 <% }%>
 </div>
@@ -120,3 +136,4 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!--底部结束-->
 </body>
 </html>
+<%HibernateSessionFactory.closeSession(); %>

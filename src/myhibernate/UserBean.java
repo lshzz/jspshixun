@@ -168,7 +168,13 @@ public class UserBean {
     	 return false;
      }
 
-     
+     //根据名字查询
+     public List<Userinfo> searchshengfen(String username)
+     {
+    	Session session=HibernateSessionFactory.getSession();
+    	 List<Userinfo> list= session.createSQLQuery("   select *   from userinfo where username='"+username+"'").addEntity(Userinfo.class).list();
+         return list;
+     }
      
      
      
