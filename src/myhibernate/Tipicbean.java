@@ -16,7 +16,7 @@ public class Tipicbean {
 	 //  查询全部帖子
     public List QueryAllTopic(){
    		Session sess=HibernateSessionFactory.getSession();    		
-   		List list=sess.createCriteria(Tipicid.class).list();
+   		List<Tipicid>list=sess.createCriteria(Tipicid.class).list();
    		return list;
     }
 	
@@ -47,6 +47,9 @@ public class Tipicbean {
        	 top.setPublishdate(publishDate);
        	 top.setTitle(title);
        	 top.setTopiccontent(topicContent);
+       	 Board b=new Board();
+       	 b.setBoardid(boardId);
+       	 top.setBoard(b);
        	 session.save(top);
        	 tx.commit();
        	 HibernateSessionFactory.closeSession();

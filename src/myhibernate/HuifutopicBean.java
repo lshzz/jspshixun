@@ -9,7 +9,7 @@ import org.hibernate.Transaction;
 public class HuifutopicBean {
 	
 	//回复帖子
-    public boolean huifu(String content,int tipicid)
+    public boolean huifu(String content,int tipicid,String username)
     {
     	Session session=HibernateSessionFactory.getSession();
     	 try
@@ -18,7 +18,7 @@ public class HuifutopicBean {
        	 Huifutopic huifutopic=new Huifutopic();
        	 huifutopic.setReturncontent(content);
        	 huifutopic.setDate(new Date().toLocaleString());
-       	 huifutopic.setHuifuname("张三");
+       	 huifutopic.setHuifuname(username);
        	 Tipicid top=new Tipicid();
        	 top.setTopicid(tipicid);
        	 huifutopic.setTipicid(top);
@@ -41,6 +41,7 @@ public class HuifutopicBean {
     	Session session=HibernateSessionFactory.getSession();
     	
     	List<Huifutopic> list=session.createSQLQuery("   select *   from Huifutopic where topicid="+id+" ").addEntity(Huifutopic.class).list();
+    	
     	return list;
     }
 	

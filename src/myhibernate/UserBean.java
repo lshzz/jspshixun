@@ -3,9 +3,12 @@ package myhibernate;
 import java.sql.Time;
 import java.util.List;
 
+import org.apache.commons.lang.ObjectUtils.Null;
 import org.hibernate.Criteria;
+import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.cfg.annotations.Nullability;
 import org.hibernate.criterion.Restrictions;
 
 
@@ -117,5 +120,56 @@ public class UserBean {
     	 return 0;
     	 
      }
+     
+     //设置用户版主
+     public boolean settingbanzhu(String username,int id)
+     {
+    	 Session session=HibernateSessionFactory.getSession();
+    	 try{
+    		 Transaction tx=session.beginTransaction();
+    		 List<Userinfo> list= session.createSQLQuery("   select *   from userinfo where username='"+username+"' ").addEntity(Userinfo.class).list();
+    		 if(list!=null)
+    		 {
+    		 Userinfo user=list.get(0);
+     		 Board b=new Board();
+    		 if(id==0)
+    		 {
+    			 b=null;
+    			 user.setBoard(b);
+        		 
+        		 session.update(user);
+        		tx.commit();
+        		HibernateSessionFactory.closeSession();
+         		 return true;
+    		 }
+    		 else
+    		 {
+             b.setBoardid(id);
+    			
+    		 }
+    		 user.setBoard(b);
+    		 
+    		 session.update(user);
+    		tx.commit();
+    		HibernateSessionFactory.closeSession();
+     		 return true;
+    		
+    		 }
+           HibernateSessionFactory.closeSession();
+    		 return false;
+    		 
+    	
+    	 }
+    	 catch(Exception e)
+    	 {
+    		 HibernateSessionFactory.closeSession();
+    		 e.printStackTrace();
+    	 }
+    	 return false;
+     }
 
+     
+     
+     
+     
 }

@@ -1,11 +1,16 @@
-<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
-<%@ taglib prefix="s" uri="/struts-tags"%> 
+<%@ page language="java" import="java.util.*" pageEncoding="GBK"%>
+<%@page import="myhibernate.BoardBean"%>
+<%@page import="myhibernate.Board"%>
+<%@page import="myhibernate.HibernateSessionFactory"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-<%request.setCharacterEncoding("utf-8");
-response.setCharacterEncoding("utf-8");
+<%request.setCharacterEncoding("GBK");
+response.setCharacterEncoding("GBK");
+String str=new String(request.getParameter("name").getBytes("iso8859-1"),"GBK");
+BoardBean  board=new BoardBean();
+List<Board> list=board.queryBoard();
  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -26,16 +31,25 @@ response.setCharacterEncoding("utf-8");
   </head>
   		
   <body>
-  	<form method="post" action="Updata.action" name="login">
-    	
-    	淇敼id涓猴細<input  name="type" id="type" readonly="readonly" value="<s:property value='type'/>"/>
-    	鐢ㄦ埛id涓猴細<input  name="id" id="id" readonly="readonly" value="<s:property value='id'/>"/>
-    	</br>
-      	<s:property value="ShowTest"/>
-  		<p>&nbsp;<input type="text" name="UpdataText">
-  		</p><p>&nbsp;<input   type="submit" name="test" value="淇敼">
-  	</form>
+<form name="settingbanzhu" action="settingbanzhu.action" method="post">
+用户身份修改:
+            		<select name="select">
+            		<option value="0">普通用户</option>
+            		 <%   
+            		for(int i=0;i<list.size();i++)
+            		{
+            		Board b=list.get(i);    		
+            	
+            		 %>
+              <option value ="<%=b.getBoardid() %>"><%=b.getBoardname() %>版主</option>
+              <% }%>
+  </select>
+  <br>
+  <input type="hidden" name="username" value="<%=str %>"><br>
+  <input type="submit" value="修改" name="button1">
+            		</form>
   
 
   </body>
 </html>
+<%HibernateSessionFactory.closeSession(); %>

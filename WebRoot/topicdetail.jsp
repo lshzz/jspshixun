@@ -51,11 +51,12 @@ Tipicid tip=t.topdetail(id);
     %>
     <br/>
     <%
-    out.println(tip.getTopiccontent());
-      %>
+     out.println(tip.getAuthor());
+      %>:
       <br/>
       <%
-    out.println(tip.getAuthor());
+   
+    out.println(tip.getTopiccontent());
      %>
      <br/>
      <% 
@@ -82,7 +83,7 @@ Tipicid tip=t.topdetail(id);
        %>
             <hr>
        <%
-       
+    
        }%>
   
     <form name="huifu" action="huifu.action" method="post"><p>&nbsp;内容回复: <textarea name="content"></textarea></p><p>&nbsp;<input type="text" name="topid" value="<%=id   %>" style="visibility:hidden;"></p><P>&nbsp;<input type="submit" value="提交" name="button1"></P><P>&nbsp;</P><P>&nbsp;</P><P>&nbsp;</P><P>&nbsp;</P></form>

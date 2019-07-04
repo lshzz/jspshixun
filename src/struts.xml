@@ -7,14 +7,14 @@
    <package name="ActionPackge" extends="struts-default">
    <!-- 定义登录的action -->
    <action name="login" class="ActionPackge.LoginAction">
-    <result name="success">Success.jsp</result>
-    <result name="fail">Fail.jsp</result>
+    <result name="success">index.jsp</result>
+    <result name="fail">Login.jsp</result>
       <result name="UserManager">UserManager.jsp</result>
    </action>
    
    <action name="register" class="ActionPackge.RegisterAction">
-   <result>Success.jsp</result>
-   <result name="fail">Fail.jsp</result>
+   <result>login.jsp</result>
+   <result name="fail">register.jsp</result>
    </action>
    
     <action name="UserManager" class="ActionPackge.UserManagerAction">
@@ -39,12 +39,17 @@
 
 	
    <action name="posting" class="ActionPackge.PostingAction">
-   <result name="success">Success.jsp</result>
+   <result name="success">index.jsp</result>
    </action>
    
       <action name="huifu" class="ActionPackge.HuifuAction">
    <result name="success">topicdetail.jsp</result>
     <result name="fail">topicdetail.jsp</result>
+   </action>
+   
+   
+         <action name="settingbanzhu" class="ActionPackge.SettingbanzhuAction">
+         <result name="NONE">UserManager.jsp</result>
    </action>
    </package>
 </struts>    

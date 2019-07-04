@@ -3,6 +3,11 @@ package ActionPackge;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.apache.struts2.StrutsStatics;
+
 import myhibernate.Tipicbean;
 import myhibernate.UserBean;
 import myhibernate.Userinfo;
@@ -43,7 +48,9 @@ public class PostingAction extends ActionSupport{
 	@Override
 	public String execute() throws Exception{
        Tipicbean t=new Tipicbean();
-       t.postings(title, topicContent,new Date().toLocaleString(), "ÕÅÈý", 1);
+		HttpServletRequest request = (HttpServletRequest)ActionContext.getContext().get(StrutsStatics.HTTP_REQUEST);
+		HttpSession session = request.getSession(true);
+       t.postings(title, topicContent,new Date().toLocaleString(), session.getAttribute("username").toString(), 1);
        return "success";
        
 	}
