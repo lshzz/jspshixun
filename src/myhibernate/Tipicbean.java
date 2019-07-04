@@ -81,8 +81,16 @@ public class Tipicbean {
         {
       	 e.printStackTrace();
       	 return null;
-        }
-       
+        }       
+    }
+    
+    //  根据用户名查找的帖子
+    public List<Tipicid> querByname(String name)
+    {
+    	Session sess=HibernateSessionFactory.getSession();
+		 List<Tipicid> list= sess.createSQLQuery("select *from tipicid where author='"+name+"' ").addEntity(Tipicid.class).list();
+		
+		 return list;
     }
 
 }

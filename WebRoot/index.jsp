@@ -3,6 +3,9 @@
 <%@page import="myhibernate.Userinfo"%>
 <%@page import="myhibernate.Tipicid"%>
 <%@page import="myhibernate.Tipicbean"%>
+<%@page import="myhibernate.HibernateSessionFactory"%>
+<%@page import="myhibernate.BoardBean"%>
+<%@page import="myhibernate.Board"%>
 <%@ taglib prefix="s" uri="/struts-tags"%> 
 <%
 String path = request.getContextPath();
@@ -14,6 +17,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <%
 Tipicbean tip=new Tipicbean();
 List list=tip.QueryAllTopic();
+BoardBean boardbean=new BoardBean();
+List<Board> boardlist=boardbean.queryAllBoard();
 String name="";
 try{
 name=session.getAttribute("username").toString();
@@ -58,17 +63,20 @@ e.printStackTrace();
 			<input type="submit" name="Submit" value="搜索">
 			</form>
 		</div>
-		<div class="xrightr"><a>登录</a>  <a>注册</a></div>
+		<div class="xrightr"><a href="Login.jsp">登录</a>  <a>注册</a>   <a href="MyTopic.jsp">我的发表</a>  <a href="Myhuifu.jsp">我的回复</a></div>
 	
 </div>
 <!--头部结束-->
 <div class="qingchufudong"></div>
 <!--主体开始-->
 <div class="leftf">
-	<div class="leftf">板块1</div>
-	<div class="leftf">板块2</div>
-	<div class="leftf">板块3</div>
-	<div class="leftf">板块4</div>
+<div class="leftf"><a href="index.jsp">全部</a></div>
+<%
+      for(int i=0;i<boardlist.size();i++){
+      Board board=(Board)boardlist.get(i);
+   %>
+	<div class="leftf"><a href="Boardshow.jsp?boardid=<%=board.getBoardid()%>"><%=board.getBoardname() %></a></div>
+	<% }%>
 </div>
 
 
@@ -94,3 +102,4 @@ e.printStackTrace();
 <!--底部结束-->
 </body>
 </html>
+  <% HibernateSessionFactory.closeSession(); %>
