@@ -13,7 +13,7 @@
    </action>
    
    <action name="register" class="ActionPackge.RegisterAction">
-   <result>login.jsp</result>
+   <result>Login.jsp</result>
    <result name="fail">register.jsp</result>
    </action>
    
