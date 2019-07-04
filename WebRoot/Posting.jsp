@@ -23,5 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body> 
-    <form method="post" action="posting.action" name="posting"><p>&nbsp;帖子标题:<input type="text" name="title" style="width: 300px;"></p><p>&nbsp;内&nbsp;&nbsp;&nbsp; 容:<textarea name="topicContent"></textarea></p><p>&nbsp;<br></p><p>&nbsp;<input type="submit" value="发表" name="button2"></p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p></form></body>
+    <form method="post" action="posting.action" name="posting">
+    <p>&nbsp;帖子标题:<input type="text" name="title" style="width: 300px;"></p>
+    <p>&nbsp;内&nbsp;&nbsp;&nbsp; 容:<textarea name="topicContent"></textarea></p><p>&nbsp;<br></p><p>&nbsp;<input type="submit" value="发表" name="button2"></p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p></form></body>
 </html>
