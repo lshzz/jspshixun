@@ -3,7 +3,12 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
+<%
+request.setCharacterEncoding("GBK");
+response.setCharacterEncoding("GBK");
+int id=Integer.parseInt(request.getParameter("boardid").trim());
+System.out.println("发表帖子的id为:"+id+"   ");
+ %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
@@ -25,5 +30,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body> 
     <form method="post" action="posting.action" name="posting">
     <p>&nbsp;帖子标题:<input type="text" name="title" style="width: 300px;"></p>
+    <input type="hidden" name="id" value="<%=id %>">
     <p>&nbsp;内&nbsp;&nbsp;&nbsp; 容:<textarea name="topicContent"></textarea></p><p>&nbsp;<br></p><p>&nbsp;<input type="submit" value="发表" name="button2"></p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p></form></body>
 </html>

@@ -18,9 +18,22 @@ import com.opensymphony.xwork2.ActionSupport;
 public class PostingAction extends ActionSupport{
 	private String title;
 	private String topicContent;
+	private int id;
     
 	
 	
+	public int getId() {
+		return id;
+	}
+
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
+
 	public String getTitle() {
 		return title;
 	}
@@ -50,7 +63,8 @@ public class PostingAction extends ActionSupport{
        Tipicbean t=new Tipicbean();
 		HttpServletRequest request = (HttpServletRequest)ActionContext.getContext().get(StrutsStatics.HTTP_REQUEST);
 		HttpSession session = request.getSession(true);
-       t.postings(title, topicContent,new Date().toLocaleString(), session.getAttribute("username").toString(), 1);
+		System.out.print(id);
+       t.postings(title, topicContent,new Date().toLocaleString(), session.getAttribute("username").toString(),id);
        return "success";
        
 	}

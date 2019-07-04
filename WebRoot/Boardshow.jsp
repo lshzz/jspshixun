@@ -20,6 +20,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	 else
 	 {
 	  id=Integer.parseInt(request.getParameter("boardid"));
+	  System.out.print("模板id为:"+id);
 	 }
 	
 	List<Tipicid> list=t.querBoardById(id); 
