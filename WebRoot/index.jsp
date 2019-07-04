@@ -14,6 +14,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <%
 Tipicbean tip=new Tipicbean();
 List list=tip.QueryAllTopic();
+String name="";
+try{
+name=session.getAttribute("username").toString();
+}
+catch(Exception e)
+{
+e.printStackTrace();
+}
  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html >
