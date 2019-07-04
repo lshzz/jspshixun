@@ -1,38 +1,57 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@page import="myhibernate.UserBean"%>
-<%@page import="myhibernate.Userinfo"%>
+
 <%@page import="myhibernate.Tipicid"%>
 <%@page import="myhibernate.Tipicbean"%>
-<%@page import="myhibernate.HibernateSessionFactory"%>
 <%@page import="myhibernate.BoardBean"%>
 <%@page import="myhibernate.Board"%>
-<%@ taglib prefix="s" uri="/struts-tags"%> 
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-<%request.setCharacterEncoding("GBK");
-  response.setCharacterEncoding("GBK");
- %>
-<%
-Tipicbean tip=new Tipicbean();
-List list=tip.QueryAllTopic();
-BoardBean boardbean=new BoardBean();
-List<Board> boardlist=boardbean.queryAllBoard();
-String name="";
-try{
-name=session.getAttribute("username").toString();
-}
-catch(Exception e)
-{
-e.printStackTrace();
-}
- %>
+	<%
+	request.setCharacterEncoding("GBK");
+	response.setCharacterEncoding("GBK");
+	Tipicbean t=new Tipicbean();
+	
+	 int id;
+	
+	 if(request.getParameter("boardid")==null)
+	 {
+	 id=Integer.parseInt(request.getAttribute("boardid").toString());
+	 }
+	 else
+	 {
+	  id=Integer.parseInt(request.getParameter("boardid"));
+	 }
+	
+	List<Tipicid> list=t.querBoardById(id); 
+	
+	 BoardBean boardbean=new BoardBean();
+	List<Board> boardlist=boardbean.queryAllBoard();
+	String name="";
+	try{
+	name=session.getAttribute("username").toString();
+	}
+	catch(Exception e)
+	{
+	e.printStackTrace();
+	}
+	 %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html >
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>论坛</title>
+<html>
+  <head>
+    <base href="<%=basePath%>">
+    
+    <title>My JSP 'Boardshow.jsp' starting page</title>
+    
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">    
+	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	<meta http-equiv="description" content="This is my page">
+	<!--
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	-->
 <style type="text/css">
 	.leftf{
 	float: left;
@@ -47,15 +66,14 @@ e.printStackTrace();
   }
 
 </style>
-
-
-</head>
-<body>
+  </head>
+  
+  <body>
 
 <!--头部开始-->
 <div id="header">
 	
-		<a class="leftf" href="#nogo"><img src="images/logo.png" alt="logo"/></a>
+		<a class="leftf" href="#nogo"><img src="images/logo.gif" alt="logo"/></a>
 		<div class="leftf">首页</div>
 		<div class="leftf">
 		<form name="form1" method="post" action="Search.action">
@@ -98,8 +116,7 @@ e.printStackTrace();
 <!--主体结束-->
 <!--底部开始-->
 <div class="qingchufudong"></div>
-<div id="footer">关于我们. </div>
+<div id="footer">底部. </div>
 <!--底部结束-->
 </body>
 </html>
-  <% HibernateSessionFactory.closeSession(); %>

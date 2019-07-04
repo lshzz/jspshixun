@@ -44,5 +44,12 @@ public class HuifutopicBean {
     	
     	return list;
     }
+    
+    //  根据用户名查找回复
+    public List<Huifutopic> queryHuifu(String name){
+    	Session session=HibernateSessionFactory.getSession();    	
+    	List<Huifutopic> list=session.createSQLQuery(" select * from Huifutopic where huifuname='"+name+"' ").addEntity(Huifutopic.class).list();
+    	return list;
+    }
 	
 }
