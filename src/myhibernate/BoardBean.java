@@ -12,5 +12,7 @@ public class BoardBean {
 	   		List<Board> list=sess.createCriteria(Board.class).list();
 	   		return list;
 	    }
+	 
+	
 
 }

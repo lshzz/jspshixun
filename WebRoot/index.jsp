@@ -55,7 +55,7 @@ e.printStackTrace();
 <!--头部开始-->
 <div id="header">
 	
-		<a class="leftf" href="#nogo"><img src="images/logo.gif" alt="logo"/></a>
+		<a class="leftf" href="#nogo"><img src="images/logo.png" alt="logo"/></a>
 		<div class="leftf">首页</div>
 		<div class="leftf">
 		<form name="form1" method="post" action="Search.action">
@@ -98,7 +98,7 @@ e.printStackTrace();
 <!--主体结束-->
 <!--底部开始-->
 <div class="qingchufudong"></div>
-<div id="footer">底部. </div>
+<div id="footer">关于我们. </div>
 <!--底部结束-->
 </body>
 </html>

@@ -92,5 +92,14 @@ public class Tipicbean {
 		
 		 return list;
     }
+    
+    //  根据模块id查找帖子
+    public List<Tipicid> querBoardById(int  id)
+    {
+    	Session sess=HibernateSessionFactory.getSession();
+		 List<Tipicid> list= sess.createSQLQuery("select *from tipicid where boardid="+id+" ").addEntity(Tipicid.class).list();
+		
+		 return list;
+    }
 
 }
