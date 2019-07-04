@@ -73,7 +73,7 @@ e.printStackTrace();
             <div class="main-h1">
                 <h1>华米月霜手环</h1>                 
                 <div class="main-h1-nav">
-                    <a href="#" class="active">全部</a>
+                    <a href="#" >全部</a>
 			      <%   for(int i=0;i<boardlist.size();i++){
 			      Board board=(Board)boardlist.get(i);   %>
                     <a href="Boardshow.jsp?boardid=<%=board.getBoardid()%>" target="_blank"><%=board.getBoardname() %></a>
@@ -136,7 +136,7 @@ e.printStackTrace();
         </div>
         <div class="clear"></div>
         <div class="btn-wrap">
-            <a href="#" class="btn-theme"><span>&#xe900;</span> 发表主题</a>
+            <a href="Posting.jsp" class="btn-theme"><span>&#xe900;</span> 发表主题</a>
             <div class="reports-wrap">
                 <a href="#" class="btn-reports">
                     <span>&#xe905; 签到</span><br>可获得1天延保
