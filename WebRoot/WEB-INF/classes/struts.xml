@@ -8,7 +8,7 @@
    <!-- 定义登录的action -->
    <action name="login" class="ActionPackge.LoginAction">
     <result name="success">index.jsp</result>
-    <result name="fail">login.jsp</result>
+    <result name="fail">Login.jsp</result>
       <result name="UserManager">UserManager.jsp</result>
    </action>
    
@@ -49,7 +49,7 @@
    
    
          <action name="settingbanzhu" class="ActionPackge.SettingbanzhuAction">
-         <result name="NONE">UpdataData.jsp</result>
+         <result name="NONE">UserManager.jsp</result>
    </action>
    </package>
 </struts>    

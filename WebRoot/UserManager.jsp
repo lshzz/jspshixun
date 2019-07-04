@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="GBK"%>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@page import="myhibernate.BoardBean"%>
 <%@page import="myhibernate.Board"%>
 <%@page import="myhibernate.HibernateSessionFactory"%>
@@ -46,16 +46,16 @@ response.setCharacterEncoding("GBK");
            		 <td><s:property value="#array.username"/></td>  
            		 <td><s:property value="#array.password"/></td> 
                  <td>
-            		<a href="toUpdata.action?type=1&id= <s:property value='#array.id'/>&name=<s:property value='#array.username'/>" >修改密码</a>
+            		<a href="toUpdata.action?type=1&id= <s:property value='#array.id'/>&name=<s:property value='#array.username'/>" >淇敼瀵嗙爜</a>
             	</td>   
             	
             	<td><s:property value="#array.type"/></td> 
              	 <td>
-            		<a href="toUpdata.action?type=2&id= <s:property value='#array.id'/>&name=<s:property value='#array.username'/>" >修改用户类型</a>
+            		<a href="toUpdata.action?type=2&id= <s:property value='#array.id'/>&name=<s:property value='#array.username'/>" >淇敼鐢ㄦ埛绫诲瀷</a>
             	</td> 
             	
              	<td>
-            		<a href="UserManager.action?id= <s:property value='#array.id'/>" >删除用户</a>
+            		<a href="UserManager.action?id= <s:property value='#array.id'/>" >鍒犻櫎鐢ㄦ埛</a>
            		 </td>   
  
        		</tr>
@@ -66,10 +66,10 @@ response.setCharacterEncoding("GBK");
 	<br>
 <table border="1">
   <tr>
-    <th>板块IDs</th>
-    <th>板块名字</th>
-    <th>删除板块</th>
-    <th>顶置板块</th>
+    <th>鏉垮潡IDs</th>
+    <th>鏉垮潡鍚嶅瓧</th>
+    <th>鍒犻櫎鏉垮潡</th>
+    <th>椤剁疆鏉垮潡</th>
   </tr>
 	<tr>
 	<s:iterator value="list" id="array">  

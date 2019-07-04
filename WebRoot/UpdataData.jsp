@@ -2,13 +2,13 @@
 <%@page import="myhibernate.BoardBean"%>
 <%@page import="myhibernate.Board"%>
 <%@page import="myhibernate.HibernateSessionFactory"%>
-<%@ taglib prefix="s" uri="/struts-tags"%> 
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 <%request.setCharacterEncoding("GBK");
 response.setCharacterEncoding("GBK");
+String str=new String(request.getParameter("name").getBytes("iso8859-1"),"GBK");
 BoardBean  board=new BoardBean();
 List<Board> list=board.queryBoard();
  %>
@@ -45,7 +45,7 @@ List<Board> list=board.queryBoard();
               <% }%>
   </select>
   <br>
-  <input type="hidden" name="username" value="<%=request.getParameter("name").toString() %>"><br>
+  <input type="hidden" name="username" value="<%=str %>"><br>
   <input type="submit" value="ÐÞ¸Ä" name="button1">
             		</form>
   
