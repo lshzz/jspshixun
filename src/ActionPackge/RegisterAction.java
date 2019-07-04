@@ -7,7 +7,13 @@ import com.opensymphony.xwork2.ActionSupport;
 public class RegisterAction extends ActionSupport {
 	 private String username;
      private String password;
-     
+     private String type;
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
 	public String getUsername() {
 		return username;
 	}
@@ -25,7 +31,8 @@ public class RegisterAction extends ActionSupport {
 	public String execute() throws Exception{
 		String str="fail";
 		UserBean userbean=new UserBean();
-		int result=userbean.insertUser(username, password);
+		type = "”√ªß";
+		int result=userbean.insertUser(username, password, type);
 		if(result==1)
 		{
 			str="success";

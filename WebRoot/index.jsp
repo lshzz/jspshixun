@@ -58,46 +58,18 @@ List list=tip.QueryAllTopic();
 
 
 <div class="qingchufudong"></div>
-   <table width="1019" height="87" border="1" align="center">
-  <tbody>
-  
-    <tr>
-      <td width="160" height="27" align="center">记录ID</td>
-      <td width="167" align="center">学号</td>
-      <td width="146" align="center">姓名</td>
-      <td width="101" align="center">班级</td>
-      <td width="139" align="center">年龄</td>
-      <td width="266" align="center">住址</td>
-    </tr>
-    
-    
-    <%
+ 
+<div  class="leftf">
+ <%
       for(int i=0;i<list.size();i++){
       Tipicid tipic=(Tipicid)list.get(i);
    %>
-    <tr>
-      <td height="27" align="center">&nbsp;<%=tipic.getTitle()%></td>
-      <td align="center">&nbsp;<%=tipic.getTopiccontent() %></td>
-      <td align="center">&nbsp;<%=tipic.getTopiccontent() %></td>
-      <td align="center">&nbsp;<%=tipic.getTitle() %></td>
-      <td align="center">&nbsp;<%=tipic.getTitle() %></td>
-      <td align="center">&nbsp;<%=tipic.getTitle()%></td>
-    </tr>
-    
-    <% }%>
-  </tbody>
-</table>
-<div  class="leftf">
-    
- 
-    
-    
-
 <div >
-<div><span>[新闻]</span><span>标题</span></div>
-<div><span>张三</span>  <span>时间</span></div>
-<div>n内容n内容n内容n内容n内容n内容n内容n内容n内容n内容n内容n内容n内容n内容n内容n内容n内容</div>
+<div><span><%=tipic.getBoard().getBoardname() %></span><a href="topicdetail.jsp?tipicid=<%=tipic.getTopicid() %>"><span><%=tipic.getTitle()%></span></a></div>
+<div><span><%=tipic.getAuthor() %></span>  <span><%=tipic.getPublishdate() %></span></div>
+<div><%=tipic.getTopiccontent() %></div>
 </div>
+<% }%>
 </div>
 
 <!--主体结束-->

@@ -46,5 +46,27 @@ public class Tipicbean {
    	 
    	 
     }
+    
+    //根据TOP的ID查询帖子详细信息
+    public Tipicid topdetail(int id)
+    {
+        Session session=HibernateSessionFactory.getSession();
+   	    
+        try
+        {
+        	 List<Tipicid> list= session.createSQLQuery("   select *   from TIPICID where topicid="+id+" ").addEntity(Tipicid.class).list();
+             if(list.size()!=0)
+             {
+        	 return list.get(0);
+             }
+             return null;
+        }
+        catch(Exception e)
+        {
+      	 e.printStackTrace();
+      	 return null;
+        }
+       
+    }
 
 }
